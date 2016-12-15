@@ -1,0 +1,216 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+ /*===== global css ======*/
+ html {
+box-sizing: border-box;
+}
+body{color: #434343;}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+p {
+  line-height: 1.6rem;
+}
+.no-marg-b{margin-bottom: 0px;}
+
+
+/*===== nav css ======*/
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+.blck_border{border:2px solid #434343;}
+.gap_5{padding: 5% 0;}
+
+
+/*== button css==*/
+.ylw_btn{background:#f4c215; color: #000;}
+.ylw_btn:hover, .ylw_btn:focus {background:#f4dc15;}
+
+/*===== discol css ======*/
+.dscl_nav{background: transparent; box-shadow:none; transition: all ease 1s;}
+.dscl_nav ul a{color: #fff;}
+.dscl_nav .brand-logo{margin-top: 10px;}
+.dscl_nav .side-nav li a{color: #474747;}
+.dscl_nav .side-nav li a:hover{color: #fff;}
+.dscl_nav .side-nav li:hover{background: teal}
+
+#index-banner{position: relative; min-height: 550px;}
+.pad_tb_7{padding: 7% 0;}
+.svgImg{width:100%; position: absolute; bottom:-12px; margin: 0;}
+.indexbtnDiv{position: absolute; width:auto; left:50%; margin-left: -128px; bottom: -40%;}
+
+.dscl_aboutDiv{background:#26a69a; color: #fff; text-align: center;}
+.dscl_aboutDiv p{margin:0; padding:10px 0;}
+#sidenav-overlay{z-index: 996;}
+
+
+.peepsList li{display: inline-block; margin: 0 10px;}
+.projectsList li .iconDiv{width:40px; height:40px; border-radius:100%; -moz-border-radius:100%; -webkit-border-radius:100%; background: #fff; border:1px solid blue;}
+.projectsList li .iconDiv:nth-child(1){border:1px solid red;}
+
+
+  /*===== footer ======*/
+.dscl_foot{background-color: #fff; padding: 20px 0;}
+.footLinks li {display: inline-block; margin-left: 5px;}
+.socialLinks{margin: 7px 0;}
+.socialLinks li a, .footLinks li a{color: #434343;}
+.socialLinks li{display: inline-block; margin: 0 2px;}
+.socialLinks li a:hover, .footLinks li a:hover{color: #000;}
+
+
+@media screen and (max-width:360px) {
+  .pad_tb_7{padding: 32% 0;}
+  .indexbtnDiv{bottom: 30%;}
+  }
+.steps-timeline:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.projectsList li {
+  outline: 1px dashed rgba(0, 128, 0, 0);
+}
+.steps-name{
+  color: #434343;
+  font-weight: 400;
+  font-size: 1.4em;
+  margin: 10px 0 0 0;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.steps-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.steps-timeline {
+  outline: 1px dashed rgba(255, 0, 0, 0);
+}
+
+@media screen and (max-width: 700px) {
+  .steps-timeline {
+    border-left: 2px solid #757575;
+    margin-left: 60px;
+  }
+  .projectsList li {
+    margin-left: -49px;
+  }
+  .projectsList li, .projectsList li + li {
+    padding-bottom: 40px;
+  }
+  .projectsList li:nth-last-child(1) {
+    margin-bottom: -100%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .steps-timeline {
+    border-top: 2px solid #757575;
+    margin-top: 40px;
+    margin-left: 12%;
+    margin-right: 12%;
+  }
+  .projectsList li {
+    float: left;
+    width: 25%;
+    margin-top: -65px;
+  }
+  .projectsList li:first-child {
+    margin-left: -12%;
+  }
+  .projectsList li:nth-last-child(1) {
+    margin-right: -15%;
+  }
+}
+
+.projectsList li .steps-img, .steps-img{
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff;
+  columns: #1896fa;
+  border:2px solid #1896fa;
+}
+.steps-description {
+  overflow: hidden;
+}
+.steps-img-main{border:1px solid #00a48f;}
+.steps-img-main i{font-size: 36px; width:100%; color:#00a48f;}
+.projectsList li .steps-img i{font-size: 36px; width:100%; color: #1896fa;}
+.projectsList li:nth-child(2) .steps-img{border:1px solid #815548;}
+.projectsList li:nth-child(2) .steps-img i{color: #815548;}
+.projectsList li:nth-child(3) .steps-img{border:1px solid #fbe844;}
+.projectsList li:nth-child(3) .steps-img i{color: #fbe844;}
+.projectsList li:nth-child(4) .steps-img{border:1px solid #ff9900;}
+.projectsList li:nth-child(4) .steps-img i{color: #ff9900;}
+.projectsList li:nth-child(5) .steps-img{border:1px solid #ff312f;}
+.projectsList li:nth-child(5) .steps-img i{color: #ff312f;}
+@media screen and (max-width: 700px) {
+  .steps-img {
+    float: left;
+  }
+  .steps-img-main{float: none; margin:0 auto;}
+  .projectsList li{text-align: left; margin-left: -40px;}
+  .projectsList li .steps-img{margin-right: 20px;}
+  .projectsList li .steps-img, .steps-img{ width:80px; height:80px;}
+  .dscl_foot{padding: 5px 0;}
+  #index-banner h4{font-size: 24px;}
+}
+
+@media screen and (min-width: 700px) {
+  .steps-name {
+    text-align: center;
+  }
+  .steps-description {
+    text-align: center;
+  }
+}
+
+/*===== parallax css ======*/
+.button-collapse {color: #26a69a;}
+
+.parallax-container {
+  height: 100%;
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+.parallax-container + .parallax-container {
+  height: 100%;
+  min-height: 250px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
