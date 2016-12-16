@@ -1,0 +1,147 @@
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+            <title>Welcome || discol</title>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+               <!--Let browser know website is optimized for mobile-->
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <!--Import Google Icon Font-->
+              <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+              <!--Import Font-Awesome Font-->
+              <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+              <!--Import materialize.css-->
+              <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+                <!--Roboto font-->
+                <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet"> 
+                <!--Import style.css-->
+              <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+            </head>
+
+            <body>
+              <div id="index-banner" class="parallax-container">
+                  <div class="navbar-fixed">
+                    <nav class="dscl_nav" role="navigation">
+                      <div class="nav-wrapper container">
+                        <a id="logo-container" href="#" class="brand-logo"><img class="brand-logo-img" src="images/discol_logo.png" alt="Discol" /></a>
+                        <ul class="right hide-on-med-and-down">
+                          <li><a href="#">Login</a></li>
+                          <li><a href="#">Sign Up</a></li>
+                          <li><a href="#">How It Works</a></li>
+                        </ul>
+
+                        <ul id="nav-mobile" class="side-nav">
+                          <li><a href="#">Login</a></li>
+                          <li><a href="#">Sign Up</a></li>
+                          <li><a href="#">How It Works</a></li>
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                      </div>
+                   </nav>
+                  </div>
+                <div class="section no-pad-bot">
+                  <div class="container pad_tb_7" style="position: relative;">
+                    <div class="row">
+                    <div class="col m6 loginContent valign-wrapper">
+                      <h4 class="header col s12 center light valign">Explore Idea, Discover People, Connect the Missing Dots of Your Idea!</h4>
+                    </div>
+                    <div class="col m6">
+                        <div class="card white clearfix loginDiv">
+                  <div class="card-content grey-text text-darken-4 clearfix">
+                    <h4 class="center">Sign Up</h4>
+                    <form name="registration" novalidate="" ng-submit="signup()" class="ng-pristine ng-invalid ng-invalid-required">
+                      <div class="input-field col s12 m6">
+                          <input id="first_name" name="first_name" required="" ng-model="user.first_name" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" type="text">
+                          <label for="first_name">First Name</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                          <input id="last_name" name="last_name" class="validate ng-pristine ng-untouched ng-valid ng-empty" ng-model="user.last_name" type="text">
+                          <label for="last_name">Last Name</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                          <input id="email" name="email" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" ng-model="user.email" type="text">
+                          <label for="email">Email</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                          <input id="username" name="username" class="validate ng-pristine ng-untouched ng-valid ng-empty" ng-model="user.username" type="text">
+                          <label for="username">Username</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                          <input id="password" name="password" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" ng-model="user.password" type="password">
+                          <label for="password">Password</label>
+                      </div>
+                      <div class="input-field col s12 m6">
+                          <input id="confirm_password" name="confirm_password" ng-model="user.confirm_password" class="validate ng-pristine ng-untouched ng-valid ng-empty" type="password">
+                          <label for="confirm_password">Confirm Password</label>
+                      </div>
+                      <div class="col s12 center">
+                          <button ng-disabled="registration.$invalid || isBusy" ng-class="{'disabled':registration.$invalid  || isBusy}" type="submit" class="btn waves-effect waves-light ylw_btn marg-bot-20 disabled" disabled="disabled">Signup</button>
+                          <p class="center">
+                              Already have an account? <a href="#/login">Login</a>
+                          </p>
+                      </div>
+                      <div style="margin-bottom: 50px">&nbsp;</div>
+                      </form>
+                  </div>
+                </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="parallax">
+                  <img src="images/background1.jpg" alt="Unsplashed background img 1">
+                </div>
+              </div>
+
+              <!-- footer -->
+              <footer>
+                <div class="footer-copyright dscl_foot">
+                  <div class="container center">
+                      <div class="row no-marg-b">
+                        <div class="col s12 l5">
+                        <p>Copyright &copy; 2016. All rights reserved.</p></div>
+                        <div class="col s12 l3">
+                          <ul class="socialLinks">
+                            <li>
+                                <a href="javascript:void(0);">
+                                  <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                  </span>
+                                </a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col s12 l4">
+                        <ul class="footLinks">
+                          <li><a href="javascript:void(0);">Privacy Policy</a></li>
+                          <li><a href="javascript:void(0);">Terms of Use</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </footer>
+                
+                
+              <!--Import jQuery before materialize.js-->
+              <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+              <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"> </script>
+              <script type="text/javascript" src="js/custome.js"> </script>
+            </body>
+          </html>

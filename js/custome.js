@@ -4,8 +4,12 @@
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
 
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+    var loginDivHgt= $(".loginDiv").height();
+    $(".loginContent").css("height", loginDivHgt + "px");
+
+
+  });
+})(jQuery);
 
 $(document).ready(function(){
       $(window).scroll(function() {

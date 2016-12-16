@@ -1,0 +1,135 @@
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+            <title>Welcome || discol</title>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+               <!--Let browser know website is optimized for mobile-->
+              <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+              <!--Import Google Icon Font-->
+              <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+              <!--Import Font-Awesome Font-->
+              <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+              <!--Import materialize.css-->
+              <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+                <!--Roboto font-->
+                <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet"> 
+                <!--Import style.css-->
+              <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+            </head>
+
+            <body>
+              <div id="index-banner" class="parallax-container">
+                  <div class="navbar-fixed">
+                    <nav class="dscl_nav" role="navigation">
+                      <div class="nav-wrapper container">
+                        <a id="logo-container" href="#" class="brand-logo"><img class="brand-logo-img" src="images/discol_logo.png" alt="Discol" /></a>
+                        <ul class="right hide-on-med-and-down">
+                          <li><a href="#">Login</a></li>
+                          <li><a href="#">Sign Up</a></li>
+                          <li><a href="#">How It Works</a></li>
+                        </ul>
+
+                        <ul id="nav-mobile" class="side-nav">
+                          <li><a href="#">Login</a></li>
+                          <li><a href="#">Sign Up</a></li>
+                          <li><a href="#">How It Works</a></li>
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                      </div>
+                   </nav>
+                  </div>
+                <div class="section no-pad-bot">
+                  <div class="container pad_tb_7" style="position: relative;">
+                    <div class="row">
+                    <div class="col m6 loginContent valign-wrapper">
+                      <h4 class="header col s12 center light valign">Explore Idea, Discover People, Connect the Missing Dots of Your Idea!</h4>
+                    </div>
+                    <div class="col m6">
+                        <div class="card white clearfix loginDiv">
+                  <div class="card-content grey-text text-darken-4 clearfix">
+                    <h4 class="center">Login</h4>
+                    <form ng-submit="login()" class="ng-valid clearfix">
+                      <div class="input-field">
+                          <!-- <i class="material-icons prefix">account_circle</i> -->
+                          <input id="icon_prefix" name="username" ng-model="user.username" class="validate ng-pristine ng-valid ng-empty ng-touched" type="text">
+                          <label for="icon_prefix" class="">Username</label>
+                      </div>
+                      <div class="input-field">
+                          <!-- <i class="material-icons prefix">vpn_key</i> -->
+                          <input id="icon_telephone" name="password" ng-model="user.password" class="validate ng-pristine ng-untouched ng-valid ng-empty" type="password">
+                          <label for="icon_telephone">Password</label>
+                      </div>
+                      <div class="center">
+                          <button type="submit" class="btn waves-effect waves-light ylw_btn marg-bot-20">Login</button>
+                          <p class="center">
+                              Forgot password? <a href="javascript:void(0)">Recover</a>
+                          </p>
+                          <p class="center">
+                              Not have an account? <a href="#/signup">Signup</a>
+                          </p>
+                      </div>
+                    </form>
+                    </div>
+                  </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="parallax">
+                  <img src="images/background1.jpg" alt="Unsplashed background img 1">
+                </div>
+              </div>
+
+              <!-- footer -->
+              <footer>
+                <div class="footer-copyright dscl_foot">
+                  <div class="container center">
+                      <div class="row no-marg-b">
+                        <div class="col s12 l5">
+                        <p>Copyright &copy; 2016. All rights reserved.</p></div>
+                        <div class="col s12 l3">
+                          <ul class="socialLinks">
+                            <li>
+                                <a href="javascript:void(0);">
+                                  <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                  </span>
+                                </a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-circle fa-stack-2x"></i>
+                                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col s12 l4">
+                        <ul class="footLinks">
+                          <li><a href="javascript:void(0);">Privacy Policy</a></li>
+                          <li><a href="javascript:void(0);">Terms of Use</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </footer>
+                
+                
+              <!--Import jQuery before materialize.js-->
+              <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+              <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"> </script>
+              <script type="text/javascript" src="js/custome.js"> </script>
+            </body>
+          </html>
