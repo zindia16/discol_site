@@ -1,47 +1,44 @@
-<div id="index-banner" class="parallax-container">
-	<before-login-nav></before-login-nav>
-	<div class="section no-pad-bot">
-		<div class="container pad_tb_7" style="position: relative;">
-			<div class="row">
-				<div class="col m6 s12 loginContent valign-wrapper">
-					<h4 class="header col s12 center light valign">Explore Idea, Discover People, Connect the Missing Dots of Your Idea!</h4>
-				</div>
-				<div class="col m6 s12">
-					<div class="card white clearfix loginDiv">
-						<div class="card-content grey-text text-darken-4 clearfix">
-							<h4 class="center">Login</h4>
-							<form ng-submit="login()" class="ng-valid clearfix">
-								<div class="input-field">
-									<!-- <i class="material-icons prefix">account_circle</i> -->
-									<input id="icon_prefix" name="username" ng-model="user.username" class="validate ng-pristine ng-valid ng-empty ng-touched" type="text">
-									<label for="icon_prefix" class="">Username</label>
-								</div>
-								<div class="input-field">
-									<!-- <i class="material-icons prefix">vpn_key</i> -->
-									<input id="icon_telephone" name="password" ng-model="user.password" class="validate ng-pristine ng-untouched ng-valid ng-empty" type="password">
-									<label for="icon_telephone">Password</label>
-								</div>
-								<div class="center">
-									<p class="red-text center">{{response.message}}</p>
-									<button type="submit" class="btn waves-effect waves-light ylw_btn marg-bot-20" ng-disabled="isBusy">Login</button>
-									<p class="center">
-										Forgot password? <a href="javascript:void(0)">Recover</a>
-									</p>
-									<p class="center">
-										Not have an account? <a href="#!/signup">Signup</a>
-									</p>
-								</div>
-							</form>
+	<div id="index-banner" class="beforeLoginBg">
+		<before-login-nav></before-login-nav>
+		<div class="section no-pad-bot">
+			<div class="container pad_tb_10" style="position: relative;">
+				<div class="row">
+					<div class="col m6 s12 loginContent valign-wrapper">
+						<h4 class="header col s12 center light valign captionTxt">Explore Idea, Discover People, Connect the Missing Dots of Your Idea!</h4>
+					</div>
+					<div class="col m6 s12">
+						<div class="card white clearfix loginDiv">
+							<div class="card-content grey-text text-darken-4 clearfix">
+								<h4 class="center">Login</h4>
+								<form ng-submit="login()" class="ng-valid clearfix">
+									<div class="input-field">
+										<!-- <i class="material-icons prefix">account_circle</i> -->
+										<input id="icon_prefix" name="username" ng-model="user.username" class="validate ng-pristine ng-valid ng-empty ng-touched" type="text">
+										<label for="icon_prefix" class="">Username</label>
+									</div>
+									<div class="input-field">
+										<!-- <i class="material-icons prefix">vpn_key</i> -->
+										<input id="icon_telephone" name="password" ng-model="user.password" class="validate ng-pristine ng-untouched ng-valid ng-empty" type="password">
+										<label for="icon_telephone">Password</label>
+									</div>
+									<div class="center">
+										<p class="red-text center">{{response.message}}</p>
+										<button type="submit" class="btn waves-effect waves-light ylw_btn marg-bot-2 marg-top-1" ng-disabled="isBusy">Login</button>
+										<p class="center">
+											Forgot password? <a href="javascript:void(0)">Recover</a>
+										</p>
+										<p class="center">
+											Not have an account? <a href="#!/signup">Signup</a>
+										</p>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="parallax" parallax>
-		<img src="images/background1.jpg" alt="Unsplashed background img 1">
-	</div>
-</div>
 
-<!-- footer -->
-<footer-custom></footer-custom>
+	<!-- footer -->
+	<footer-custom></footer-custom>

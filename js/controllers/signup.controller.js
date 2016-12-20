@@ -1,7 +1,6 @@
 angular.module('landing').controller('Signup',[
 	'$scope',
 	function($scope){
-
 		var changeLoginContent = function(){
 			var loginDivHgt= $(".loginDiv").height();
 			var windowSize = $(window).width();
@@ -11,9 +10,9 @@ angular.module('landing').controller('Signup',[
 				$(".loginContent").css("height", "auto");
 			}
 		};
-		//changeLoginContent();
+		changeLoginContent();
 		$(window).resize(function(){
-			//changeLoginContent();
+			changeLoginContent();
 		});
 
 

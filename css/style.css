@@ -20,8 +20,10 @@ p {
   line-height: 1.6rem;
 }
 .no-marg-b{margin-bottom: 0px;}
-.marg-bot-20{margin-bottom: 20px;}
-
+.marg-top-1{margin-top: 1rem;}
+.marg-bot-1{margin-bottom: 1rem;}
+.marg-bot-2{margin-bottom: 2rem;}
+.pad_tb_10{padding: 10% 0;}
 
 /*===== nav css ======*/
 nav ul a,
@@ -33,31 +35,36 @@ nav .brand-logo {
 
 
 /*== button css==*/
-.ylw_btn{background:#f4c215; color: #000;}
-.ylw_btn:hover, .ylw_btn:focus {background:#f4dc15;}
+.ylw_btn{background:#f4c215; color: #000; box-shadow: none;}
+.ylw_btn:hover, .ylw_btn:focus {background:#f4dc15; box-shadow: none;}
 
 /*===== discol css ======*/
 .dscl_nav{background: transparent; box-shadow:none; transition: all ease 1s;}
 .dscl_nav ul a{color: #fff;}
-.dscl_nav .brand-logo{margin-top: 10px;}
+.dscl_nav .brand-logo{margin-top: 0.6rem;}
 .dscl_nav .side-nav li a{color: #474747 !important;}
 .dscl_nav .side-nav li a:hover{color: #fff !important;}
 .dscl_nav .side-nav li:hover{background: teal}
 
-#index-banner{position: relative; min-height: 550px;}
+#index-banner{position: relative; min-height: 42rem;}
 .pad_tb_7{padding: 7% 0;}
 .svgImg{width:100%; position: absolute; bottom:-12px; margin: 0;}
 .indexbtnDiv{position: absolute; width:auto; left:50%; margin-left: -128px; bottom: -40%;}
 
 .dscl_aboutDiv{background:#26a69a; color: #fff; text-align: center;}
-.dscl_aboutDiv p{margin:0; padding:10px 0;}
+.dscl_aboutDiv p{margin:0; padding:1rem 0;}
 #sidenav-overlay{z-index: 996;}
 
 
-.peepsList li{display: inline-block; margin: 0 10px;}
-.projectsList li .iconDiv{width:40px; height:40px; border-radius:100%; -moz-border-radius:100%; -webkit-border-radius:100%; background: #fff; border:1px solid blue;}
-.projectsList li .iconDiv:nth-child(1){border:1px solid red;}
+.peepsList li{display: inline-block; margin: 0 1rem;}
 
+
+/*== before login css ==*/
+.beforeLoginBg{background: url("../images/background1.jpg") center top no-repeat;
+background-size:cover;}
+
+/*== login section==*/
+.loginDiv input{margin-bottom: 0px;}
 
   /*===== footer ======*/
 .dscl_foot{background-color: #fff; padding: 20px 0;}
@@ -89,12 +96,6 @@ nav .brand-logo {
   display: inline-block;
   font-weight: 500;
 }
-
-.steps-header {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
 .steps-timeline {
   outline: 1px dashed rgba(255, 0, 0, 0);
 }
@@ -164,10 +165,10 @@ nav .brand-logo {
   }
   .steps-img-main{float: none; margin:0 auto;}
   .projectsList li{text-align: left; margin-left: -40px;}
-  .projectsList li .steps-img{margin-right: 20px;}
+  .projectsList li .steps-img{margin-right: 2rem;}
   .projectsList li .steps-img, .steps-img{ width:80px; height:80px;}
-  .dscl_foot{padding: 5px 0;}
-  #index-banner h4{font-size: 24px;}
+  .dscl_foot{padding: 0.5rem 0;}
+  #index-banner h4{font-size: 2.4rem;}
 }
 
 @media screen and (min-width: 700px) {
@@ -187,8 +188,9 @@ nav .brand-logo {
   min-height: 380px;
   line-height: 0;
   height: auto;
-  color: rgba(255,255,255,.9);
+  
 }
+h4.captionTxt{color: rgba(255,255,255,.9);}
 .parallax-container + .parallax-container {
   height: 100%;
   min-height: 250px;
