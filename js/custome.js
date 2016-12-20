@@ -14,7 +14,7 @@
 $(document).ready(function(){
       $(window).scroll(function() {
         if ($(document).scrollTop() > 50) {
-          $(".brand-logo-img").attr("src","images/discol_logo_blk.png"); 
+          $(".brand-logo-img").attr("src","images/discol_logo_blk.png");
           $(".dscl_nav").css("background-color", "#fff");
           $(".dscl_nav a").css("color", "#000");
         } else {
