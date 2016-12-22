@@ -47,6 +47,7 @@ angular.module('landing').controller('Login',[
         $scope.signup = function (){
 			$scope.isBusy=true;
 			$scope.response.message="";
+			//console.log(user);
 			if(!$scope.user.first_name){
 				$scope.response.message="Error: Your Name is Required!!";
 				$scope.isBusy=false;
@@ -78,18 +79,18 @@ angular.module('landing').controller('Login',[
 				return false;
 			}
 			$scope.response.message="Trying to sign you up...";
-			//$scope.isBusy=false;
+			$scope.isBusy=false;
 			//return false;
-            $http.post(urls.api+'Users/signup.json',$scope.user).success(function(res){
+            $http.post(urls.api+'Users/signup.json',$scope.user).then(function(res){
 				$scope.isBusy=false;
-                $scope.response = res;
+                $scope.response = res.body;
 				console.log(res);
                 if($scope.response.success===true){
 					$scope.response.message = "You have been successfully signed up. Go to Login page to signin to your account!!";
                     $scope.user = {};
                 }
-            }).error(function(err){
-				$scope.response=err;
+            }).catch(function(err){
+				$scope.response=err.body;
 				$scope.isBusy=false;
             });
         };

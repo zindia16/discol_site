@@ -12,7 +12,7 @@
 								<h4 class="center">Sign Up</h4>
 								<form name="registration" novalidate="" ng-submit="signup()" class="ng-pristine ng-invalid ng-invalid-required">
 									<div class="input-field col s12 m6">
-										<input id="first_name" name="first_name" required="" ng-model="user.first_name" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" type="text">
+										<input id="first_name" name="first_name" required ng-model="user.first_name" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" type="text">
 										<label for="first_name">First Name</label>
 									</div>
 									<div class="input-field col s12 m6">
@@ -20,7 +20,7 @@
 										<label for="last_name">Last Name</label>
 									</div>
 									<div class="input-field col s12 m6">
-										<input id="email" name="email" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" ng-model="user.email" type="text">
+										<input id="email" name="email" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" ng-model="user.email" type="email">
 										<label for="email">Email</label>
 									</div>
 									<div class="input-field col s12 m6">
@@ -36,6 +36,7 @@
 										<label for="confirm_password">Confirm Password</label>
 									</div>
 									<div class="col s12 center">
+										<p class="center red-text">{{response.message}}</p>
 										<button ng-disabled="registration.$invalid || isBusy" ng-class="{'disabled':registration.$invalid  || isBusy}" type="submit" class="btn waves-effect waves-light ylw_btn marg-bot-2 disabled marg-top-1" disabled="disabled">Signup</button>
 										<p class="center">
 											Already have an account? <a href="#!/login">Login</a>
@@ -43,6 +44,7 @@
 									</div>
 									<div class="marg-bot-1">&nbsp;</div>
 								</form>
+								<pre>{{user | json}}</pre>
 							</div>
 						</div>
 					</div>

@@ -41,7 +41,7 @@ angular.module('landing').config([
 		})
 		.when('/signup',{
 			templateUrl:'views/signup.html',
-			controller:'Signup'
+			controller:'Login'
 		})
 		.otherwise({
 			redirectTo:'/'

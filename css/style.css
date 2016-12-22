@@ -5,10 +5,11 @@
  *
  * Made By MaterializeCSS.com
  */
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
  /*===== global css ======*/
  html {
 box-sizing: border-box;
+font-family: 'Open Sans', sans-serif;
 }
 body{color: #434343;}
 *,
@@ -188,7 +189,7 @@ background-size:cover;}
   min-height: 380px;
   line-height: 0;
   height: auto;
-  
+
 }
 h4.captionTxt{color: rgba(255,255,255,.9);}
 .parallax-container + .parallax-container {
@@ -217,4 +218,3 @@ h4.captionTxt{color: rgba(255,255,255,.9);}
     top: 0;
   }
 }
-

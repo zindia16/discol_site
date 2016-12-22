@@ -1,6 +1,6 @@
-angular.module('landing').directive('footerCustom',function(){
+angular.module('landing').directive('footerCustom',function(urls){
 	return {
 		restrict : 'E',
-		templateUrl:'js/directives/templates/footer.html'
+		templateUrl:urls.root+'js/directives/templates/footer.html'
 	};
 });

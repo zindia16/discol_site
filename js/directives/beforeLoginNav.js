@@ -1,6 +1,6 @@
-angular.module('landing').directive('beforeLoginNav',function(){
+angular.module('landing').directive('beforeLoginNav',function(urls){
 	return {
 		restrict : 'E',
-		templateUrl:'js/directives/templates/beforeLoginNav.html'
+		templateUrl:urls.root+'js/directives/templates/beforeLoginNav.html'
 	};
 });
