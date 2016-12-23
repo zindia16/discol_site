@@ -20,22 +20,44 @@
 										<label for="last_name">Last Name</label>
 									</div>
 									<div class="input-field col s12 m6">
-										<input id="email" name="email" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" ng-model="user.email" type="email">
-										<label for="email">Email</label>
+										<input id="email" name="email" ng-remote-validate="{{validateEmailApiEndPoint}}" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" ng-model="user.email" type="email">
+										<label for="email">Email <span class="red-text" ng-show="registration.email.$pending">validating...</span></label>
+										<span ng-show="registration.email.$error.required && registration.email.$dirty" class="red-text">
+											Email is required
+										</span>
+
+										<span ng-show="!registration.email.$pending && registration.email.$error.ngRemoteValidate && registration.email.$dirty" class="red-text">
+											Looks like you are already registered. Please login.
+										</span>
 									</div>
 									<div class="input-field col s12 m6">
-										<input id="username" name="username" class="validate ng-pristine ng-untouched ng-valid ng-empty" ng-model="user.username" type="text">
-										<label for="username">Username</label>
+										<input id="username" name="username" ng-remote-validate="{{validateUsernameApiEndPoint}}" class="validate ng-pristine ng-untouched ng-valid ng-empty" ng-model="user.username" type="text">
+										<label for="username">Username <span class="red-text" ng-show="registration.username.$pending">validating...</span></label>
+										<span ng-show="registration.username.$error.required && registration.username.$dirty" class="red-text">
+											Username is required
+										</span>
+										<span ng-show="!registration.username.$pending && registration.username.$error.ngRemoteValidate && registration.username.$dirty" class="red-text">
+											This username is already taken! Please try some other username.
+										</span>
 									</div>
 									<div class="input-field col s12 m6">
 										<input id="password" name="password" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" required="" ng-model="user.password" type="password">
 										<label for="password">Password</label>
+										<span ng-show="registration.password.$error.required && registration.password.$dirty" class="red-text">
+											Password is required
+										</span>
 									</div>
 									<div class="input-field col s12 m6">
 										<input id="confirm_password" name="confirm_password" ng-model="user.confirm_password" class="validate ng-pristine ng-untouched ng-valid ng-empty" type="password">
 										<label for="confirm_password">Confirm Password</label>
+										<span ng-show="registration.confirm_password.$error.required && registration.confirm_password.$dirty" class="red-text">
+											Password is required
+										</span>
+										<span ng-show="!registration.confirm_password.$error.required && registration.confirm_password.$dirty && user.password != user.confirm_password" class="red-text">
+											Password didn't matched
+										</span>
 									</div>
-									<div class="col s12 center">
+									<div class="col s12 center clearfix">
 										<p class="center red-text">{{response.message}}</p>
 										<button ng-disabled="registration.$invalid || isBusy" ng-class="{'disabled':registration.$invalid  || isBusy}" type="submit" class="btn waves-effect waves-light ylw_btn marg-bot-2 disabled marg-top-1" disabled="disabled">Signup</button>
 										<p class="center">
@@ -44,7 +66,6 @@
 									</div>
 									<div class="marg-bot-1">&nbsp;</div>
 								</form>
-								<pre>{{user | json}}</pre>
 							</div>
 						</div>
 					</div>

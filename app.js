@@ -1,7 +1,8 @@
 angular.module('landing',[
 	'ngRoute',
 	'ui.materialize',
-	'ngStorage'
+	'ngStorage',
+	'remoteValidation'
 ]);
 
 angular.module('landing').constant('urls',{

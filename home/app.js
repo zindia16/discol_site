@@ -12,7 +12,7 @@ angular.module('landing').constant('urls',{
 angular.module('landing').run([
 	'$location',
 	function($location){
-		
+
 	}
 ]);
 

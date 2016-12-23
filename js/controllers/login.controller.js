@@ -2,6 +2,9 @@ angular.module('landing').controller('Login',[
 	'$scope','$http','$localStorage','urls',
 	function($scope,$http,$localStorage,urls){
 
+		$scope.validateEmailApiEndPoint=urls.api+'Users/isEmailExists.json';
+		$scope.validateUsernameApiEndPoint=urls.api+'Users/isUserExists.json';
+
 		var changeLoginContent = function(){
 			var loginDivHgt= $(".loginDiv").height();
 			var windowSize = $(window).width();
