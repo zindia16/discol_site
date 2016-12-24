@@ -91,6 +91,7 @@ background-size:cover;}
 .socialLinks li a, .footLinks li a{color: #434343;}
 .socialLinks li{display: inline-block; margin: 0 2px;}
 .socialLinks li a:hover, .footLinks li a:hover{color: #000;}
+.userName{color:rgba(255, 255, 255, 0.9) !important; font-size: 14px;}
 
 
 @media screen and (max-width:599px) {
@@ -135,6 +136,7 @@ background-size:cover;}
   }
   .caption-section h4{font-size: 2rem; line-height: 130%;}
 }
+
 @media screen and (min-width: 700px) {
   .steps-timeline {
     border-top: 1px solid #e0e0e0;
@@ -178,6 +180,7 @@ background-size:cover;}
 .projectsList li:nth-child(4) .steps-img i{color: #ff9900;}
 .projectsList li:nth-child(5) .steps-img{border:2px solid #ff312f;}
 .projectsList li:nth-child(5) .steps-img i{color: #ff312f;}
+
 @media screen and (max-width: 700px) {
   .steps-img {
     float: left;

@@ -1,7 +1,8 @@
 angular.module('landing',[
 	'ngRoute',
 	'ui.materialize',
-	'ngStorage'
+	'ngStorage',
+	'oc.lazyLoad'
 ]);
 
 angular.module('landing').constant('urls',{
@@ -17,12 +18,20 @@ angular.module('landing').run([
 ]);
 
 angular.module('landing').config([
-	'$routeProvider','$locationProvider',
-	function($routeProvider,$locationProvider){
+	'$routeProvider','$locationProvider','$ocLazyLoadProvider','urls',
+	function($routeProvider,$locationProvider,$ocLazyLoadProvider,urls){
+		$ocLazyLoadProvider.config({
+			debug:true
+		});
 		$routeProvider
 		.when('/',{
 			templateUrl:"views/landing.html",
-			controller:'Main'
+			controller:'Content',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load(urls.root+'js/controllers/content.controller.js');
+				}]
+			}
 		})
 		.otherwise({
 			redirectTo:'/'
