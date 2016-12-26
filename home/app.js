@@ -11,11 +11,18 @@ angular.module('landing').constant('urls',{
 });
 
 angular.module('landing').run([
-	'$location',
-	function($location){
-
+	'$location','$localStorage','$http','urls',
+	function($location,$localStorage,$http,urls){
+		if($localStorage.token){
+			$http.defaults.headers.common.Authorization = 'Basic ' + $localStorage.token;
+		}else{
+			window.location.replace(urls.root+'#!/login');
+		}
 	}
 ]);
+
+
+
 
 angular.module('landing').config([
 	'$routeProvider','$locationProvider','$ocLazyLoadProvider','urls',
@@ -32,8 +39,44 @@ angular.module('landing').config([
 					return $ocLazyLoad.load({
 						name:'homeDep',
 						files:[
+							urls.root+'js/directives/contentCard.js',
 							urls.root+'js/services/content.service.js',
 							urls.root+'js/controllers/content.controller.js'
+						]
+					});
+				}]
+			}
+		})
+		.when('/posts',{
+			templateUrl:"views/posts.html",
+			controller:'Posts',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/contentCard.js',
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/controllers/posts.controller.js'
+						]
+					});
+				}]
+			}
+		})
+		.when('/posts/:id',{
+			templateUrl:"views/post.html",
+			controller:'Post',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/postCard.js',
+							urls.root+'js/directives/userInfo.js',
+							urls.root+'js/directives/commentsCard.js',
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/services/comment.service.js',
+							urls.root+'js/controllers/post.controller.js'
 						]
 					});
 				}]
@@ -49,8 +92,16 @@ angular.module('landing').config([
 ]);
 
 angular.module('landing').controller('Main',[
-	'$scope','$rootScope','urls',
-	function($scope,$rootScope,urls){
+	'$scope','$rootScope','$location','$localStorage','urls',
+	function($scope,$rootScope,$location,$localStorage,urls){
 		console.log(urls);
+		$scope.getClass = function (path) {
+		  	return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+		};
+
+		$rootScope.logout = function(){
+			$localStorage.$reset();
+			window.location.replace(urls.root+'#!/login');
+		};
 	}
 ]);

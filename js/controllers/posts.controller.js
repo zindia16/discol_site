@@ -1,10 +1,8 @@
-angular.module('landing').controller('Content',[
+angular.module('landing').controller('Posts',[
 	'$scope','$localStorage','urls','ContentService','$timeout',
 	function($scope,$localStorage,urls,ContentService,$timeout){
 		$scope.contentLoaded=false;
-
-		ContentService.getContents(function(res){
-			console.log(res);
+		ContentService.getPosts(function(res){
 			$timeout(function(){
 				$scope.contents=res.contents;
 				$scope.contentLoaded=true;
@@ -12,7 +10,5 @@ angular.module('landing').controller('Content',[
 		},function(err){
 			console.log(err);
 		});
-
-
 	}
 ]);

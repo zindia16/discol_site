@@ -1,0 +1,10 @@
+<div class="container pad_tb_3 dashboardSec">
+	<div class="row" ng-show="!contentLoaded">
+		<loader></loader>
+	</div>
+	<div class="row">
+		<div class="col m6 s12 l4" ng-repeat="content in contents">
+			<content-card data-content="content"></content-card>
+		</div>
+	</div>
+</div>

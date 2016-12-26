@@ -1,0 +1,15 @@
+angular.module('landing').controller('Post',[
+	'$scope','$localStorage','urls','ContentService','$timeout','$routeParams',
+	function($scope,$localStorage,urls,ContentService,$timeout,$routeParams){
+		$scope.contentLoaded=false;
+		console.log($routeParams);
+		ContentService.getPost($routeParams.id,function(res){
+			$timeout(function(){
+				$scope.content=res.content;
+				$scope.contentLoaded=true;
+			},0);
+		},function(err){
+			console.log(err);
+		});
+	}
+]);

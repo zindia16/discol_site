@@ -1,18 +1,38 @@
 angular.module('landing').factory('ContentService',[
 	'$http','urls',
-	function($http){
+	function($http,urls){
 
 		var getContents=function(success,error){
 			$http.get(urls.api+'Contents.json')
 			.then(function(res){
-				console.log(res);
+				success(res.data);
 			})
 			.catch(function(err){
-				console.log(err);
+				error(err);
+			});
+		};
+		var getPosts=function(success,error){
+			$http.get(urls.api+'Contents/index/post.json')
+			.then(function(res){
+				success(res.data);
+			})
+			.catch(function(err){
+				error(err);
+			});
+		};
+		var getPost=function(id,success,error){
+			$http.get(urls.api+'Contents/view/'+id+'.json')
+			.then(function(res){
+				success(res.data);
+			})
+			.catch(function(err){
+				error(err);
 			});
 		};
 		return {
-			getContents:getContents
+			getContents:getContents,
+			getPosts:getPosts,
+			getPost:getPost
 		};
 	}
 ]);

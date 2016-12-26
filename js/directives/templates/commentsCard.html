@@ -1,0 +1,13 @@
+<div class="center" ng-show="!commentsLoaded">
+	<loader></loader>
+</div>
+<ul class="collection" ng-if="commentsLoaded">
+	<li class="collection-item avatar" ng-repeat="comment in comments">
+		<img ng-src="{{comment.user.profile_picture}}" ng-init="comment.user.profile_picture=comment.user.profile_picture || '../images/user.png'" alt="" class="circle">
+		<span class="title">
+			{{comment.user.first_name}} {{comment.user.last_name}} | {{comment.created | date}}
+		</span>
+		<p>{{comment.text}}</p>
+		<a href="#!" class="secondary-content grey-text"><i class="material-icons">thumb_up</i></a>
+	</li>
+</ul>
