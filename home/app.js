@@ -29,7 +29,13 @@ angular.module('landing').config([
 			controller:'Content',
 			resolve:{
 				dep:['$ocLazyLoad',function($ocLazyLoad){
-					return $ocLazyLoad.load(urls.root+'js/controllers/content.controller.js');
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/controllers/content.controller.js'
+						]
+					});
 				}]
 			}
 		})

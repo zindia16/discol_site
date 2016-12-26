@@ -1,6 +1,11 @@
 angular.module('landing').controller('Content',[
-	'$scope','$http','$localStorage','urls',
-	function($scope,$http,$localStorage,urls){
-		
+	'$scope','$localStorage','urls','ContentService',
+	function($scope,$localStorage,urls,ContentService){
+		alert('hi');
+		ContentService.getContents(function(res){
+
+		},function(err){
+
+		});
 	}
 ]);
