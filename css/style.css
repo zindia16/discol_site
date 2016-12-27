@@ -47,16 +47,17 @@ nav .brand-logo {
 .dscl_nav{background: transparent; box-shadow:none; transition: all ease 1s;}
 .dscl-fixed-nav.navbar-fixed{z-index: 9999;}
 .dscl_nav ul a{color: #fff;}
-.dscl_nav .brand-logo, .dscl_inner_nav .brand-logo{margin-top: 0.5rem;}
+.dscl_nav .brand-logo, .dscl_inner_nav .brand-logo{margin-top: 0.4rem;}
 .dscl_nav .side-nav li a{color: #474747 !important;}
 .dscl_nav .side-nav li a:hover{color: #fff !important;}
 .dscl_nav .side-nav li:hover{background: teal}
-.dscl_inner_nav{box-shadow:none;}
-.inner-sideNav{padding-top: 55px; background: #fff; color: #333;}
+nav.dscl_inner_nav, nav.dscl_inner_nav .nav-wrapper i{box-shadow:none;  height:50px; line-height: 50px;}
+.inner-sideNav{padding-top: 50px; background: #fff; color: #333;}
 .inner-sideNav .userView{background: rgba(0, 0, 0, 0.3);}
 .sideNav_userPic{padding:3em 0 0 0 !important;}
 .sideNav_userPic img{margin:0 auto; }
 .sideNav_userName{margin-top:1em; padding:0.2em 0 2em 0 !important; font-weight: bold;}
+
 
 #index-banner{position: relative; min-height: 42rem;}
 .pad_tb_7{padding: 7% 0;}

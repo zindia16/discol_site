@@ -5,7 +5,9 @@
 	</div>
 	<div class="card-content">
 		<p><img  class="userPic" ng-src="{{content.user.profile_picture}}" ng-init="content.user.profile_picture = content.user.profile_picture || '../images/user.png'" alt="User"/></p>
-		<span class="card-title"><a ng-href="#!/posts/{{content.id}}" class="white-text truncate">{{content.content_type}}</a><i class="material-icons activator white-text">more_vert</i></span>
+		<span class="card-title"><a ng-href="javascript:void(0)" class="white-text">{{content.content_type}}</a>
+			<i class="material-icons white-text" data-activates='postMoreAction' data-constrainwidth="false" dropdown data-hover="false" data-beloworigin="true" data-alignment="right">more_vert</i>
+		</span>
 		<p class="userName">
 			{{content.user.first_name}} {{content.user.last_name}} |
 			{{content.created | date}}
@@ -13,7 +15,6 @@
 		<p class="white-text">
 			{{content.text}}
 		</p>
-		<!-- <pre>{{content | json}}</pre> -->
 	</div>
 	<div class="card-action clearfix">
 		<div class="chip ">
@@ -26,8 +27,12 @@
 			<i class="material-icons white-text">message</i>{{content.comment_count}}
 		</div>
 	</div>
-	<div class="card-reveal">
-		<span class="card-title grey-text text-darken-4">{{content.user.first_name}} {{content.user.last_name}}<i class="material-icons right">close</i></span>
-		<p>{{content.text}}</p>
-	</div>
 </div>
+
+<ul id='postMoreAction' class='dropdown-content'>
+    <li><a href="javascript:void(0);"><i class="material-icons right">star</i>Make Favourite</a></li>
+    <li><a href="javascript:void(0);">Link 2</a></li>
+    <li class="divider"></li>
+    <li><a href="javascript:void(0);">Link 4</a></li>
+    <li><a href="javascript:void(0);">Link 5</a></li>
+</ul>

@@ -23,6 +23,8 @@ angular.module('landing').directive('postCard',function(urls){
 						return $sce.trustAsHtml('<i class="material-icons light-blue-text text-darken-1 valign">send</i>');
 				}
 			};
+
+			
 		}
 	};
 });
