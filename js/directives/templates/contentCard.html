@@ -1,10 +1,25 @@
-<div class="card sticky-action" ng-class="getContentBg(content.content_type)">
+<div class="card medium sticky-action" ng-class="getContentBg(content.content_type)">
 	<div class="card-image waves-effect waves-block waves-light">
 		<span class="category_icon valign-wrapper" ng-bind-html="getContentIcon(content.content_type)"></span>
-		<img class="activator responsive-img" ng-src="{{content.header_image_link}}" ng-init="content.header_image_link = content.header_image_link ||  '../images/baby.jpg'">
+		<img ng-hide="content.video_link" class="activator responsive-img" ng-src="{{content.header_image_link}}" ng-init="content.header_image_link = content.header_image_link ||  '../images/baby.jpg'">
+		<embed-video ng-show="content.video_link" width="100%" height="200px" href="{{content.video_link}}"></embed-video>
 	</div>
 	<div class="card-content">
-		<p><img  class="userPic" ng-src="{{content.user.profile_picture}}" ng-init="content.user.profile_picture = content.user.profile_picture || '../images/user.png'" alt="User"/></p>
+		<!-- <div class="slider"  slider height="250">
+			<ul class="slides" ng-class="getContentBg(content.content_type)">
+				<li ng-if="content.header_image_link">
+					<img src="{{content.header_image_link}}">
+
+				</li>
+				<li ng-if="content.video_link">
+					<embed-video ng-show="content.video_link" width="100%" height="200px" href="{{content.video_link}}"></embed-video>
+				</li>
+			</ul>
+		</div> -->
+		<p>
+			<a href="javascript:void(0)"><img  class="userPic" ng-src="{{content.user.profile_picture}}" ng-init="content.user.profile_picture = content.user.profile_picture || '../images/user.png'" alt="User"/></a>
+		</p>
+
 		<span class="card-title"><a ng-href="#!/posts/{{content.id}}" class="white-text truncate">{{content.content_type}}</a><i class="material-icons activator white-text">more_vert</i></span>
 		<p class="userName">
 			{{content.user.first_name}} {{content.user.last_name}} |
@@ -12,7 +27,7 @@
 		</p>
 		<p class="white-text truncate activator">
 			{{content.text}}
-		</p> 
+		</p>
 		<!-- <pre>{{content | json}}</pre> -->
 	</div>
 	<div class="card-action clearfix">

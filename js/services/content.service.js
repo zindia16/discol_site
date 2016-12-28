@@ -29,10 +29,21 @@ angular.module('landing').factory('ContentService',[
 				error(err);
 			});
 		};
+
+		var savePost = function(data,success,error){
+			$http.post(urls.api+'Contents/add.json',data)
+			.then(function(res){
+				success(res.data);
+			})
+			.catch(function(err){
+				error(err);
+			});
+		};
 		return {
 			getContents:getContents,
 			getPosts:getPosts,
-			getPost:getPost
+			getPost:getPost,
+			savePost:savePost
 		};
 	}
 ]);

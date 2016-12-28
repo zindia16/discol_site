@@ -1,15 +1,37 @@
 angular.module('landing').controller('Post',[
-	'$scope','$localStorage','urls','ContentService','$timeout','$routeParams',
-	function($scope,$localStorage,urls,ContentService,$timeout,$routeParams){
+	'$scope','$localStorage','urls','ContentService','UserService','$timeout','$routeParams',
+	function($scope,$localStorage,urls,ContentService,UserService,$timeout,$routeParams){
 		$scope.contentLoaded=false;
 		console.log($routeParams);
-		ContentService.getPost($routeParams.id,function(res){
+
+		if($routeParams.id){
+			ContentService.getPost($routeParams.id,function(res){
+				$timeout(function(){
+					$scope.content=res.content;
+					$scope.user=$scope.content.user;
+					$scope.contentLoaded=true;
+				},0);
+			},function(err){
+				console.log(err);
+			});
+		}else{
 			$timeout(function(){
-				$scope.content=res.content;
-				$scope.contentLoaded=true;
+				$scope.content={};
+				if(UserService.authUser){
+					$scope.user=UserService.authUser;
+					$scope.contentLoaded=true;
+				}else{
+					UserService.getAuthUser(function(res){
+						$scope.user=res.user;
+						$scope.content.user=$scope.user;
+						$scope.contentLoaded=true;
+					},function(err){
+						console.log(err);
+						$scope.contentLoaded=true;
+					});
+				}
 			},0);
-		},function(err){
-			console.log(err);
-		});
+		}
+
 	}
 ]);

@@ -2,7 +2,8 @@ angular.module('landing',[
 	'ngRoute',
 	'ui.materialize',
 	'ngStorage',
-	'oc.lazyLoad'
+	'oc.lazyLoad',
+	'videosharing-embed'
 ]);
 
 angular.module('landing').constant('urls',{
@@ -76,6 +77,25 @@ angular.module('landing').config([
 							urls.root+'js/directives/commentsCard.js',
 							urls.root+'js/services/content.service.js',
 							urls.root+'js/services/comment.service.js',
+							urls.root+'js/services/user.service.js',
+							urls.root+'js/controllers/post.controller.js'
+						]
+					});
+				}]
+			}
+		})
+		.when('/post/new',{
+			templateUrl:"views/newPost.html",
+			controller:'Post',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/newPostCard.js',
+							urls.root+'js/directives/userInfo.js',
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/services/user.service.js',
 							urls.root+'js/controllers/post.controller.js'
 						]
 					});

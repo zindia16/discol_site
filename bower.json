@@ -23,6 +23,7 @@
     "angular": "^1.5.7",
     "angular-materialize": "^0.1.9",
     "ng-remote-validate": "^0.6.1",
-    "oclazyload": "^1.0.9"
+    "oclazyload": "^1.0.9",
+    "ng-videosharing-embed": "^0.3.4"
   }
 }

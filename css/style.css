@@ -47,7 +47,7 @@ nav .brand-logo {
 .dscl_nav{background: transparent; box-shadow:none; transition: all ease 1s;}
 .dscl-fixed-nav.navbar-fixed{z-index: 9999;}
 .dscl_nav ul a{color: #fff;}
-.dscl_nav .brand-logo, .dscl_inner_nav .brand-logo{margin-top: 0.4rem;}
+.dscl_nav .brand-logo, .dscl_inner_nav .brand-logo{margin-top: 0.4rem; margin-left: 0.5em;}
 .dscl_nav .side-nav li a{color: #474747 !important;}
 .dscl_nav .side-nav li a:hover{color: #fff !important;}
 .dscl_nav .side-nav li:hover{background: teal}
@@ -82,7 +82,7 @@ background-size:cover;}
 
 /* == dashboard section ==*/
 .dashboardSec .card{box-shadow: none;}
-.dashboardSec .card .card-content{position: relative; padding:20px 10px;}
+.dashboardSec .card .card-content{position: relative; padding:20px 10px; overflow: visible;}
 .dashboardSec .card .card-title{font-size: 18px; font-weight: 600; line-height: 20px;}
 .dashboardSec .card .card-title a{ width:100%; margin-top: 10px;}
 .dashboardSec .card .card-title i{cursor:pointer; position: absolute; top:6px; right:3px;}
