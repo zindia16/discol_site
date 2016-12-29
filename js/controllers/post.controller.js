@@ -2,8 +2,6 @@ angular.module('landing').controller('Post',[
 	'$scope','$localStorage','urls','ContentService','UserService','$timeout','$routeParams',
 	function($scope,$localStorage,urls,ContentService,UserService,$timeout,$routeParams){
 		$scope.contentLoaded=false;
-		console.log($routeParams);
-
 		if($routeParams.id){
 			ContentService.getPost($routeParams.id,function(res){
 				$timeout(function(){

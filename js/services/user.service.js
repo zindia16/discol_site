@@ -23,7 +23,12 @@ angular.module('landing').factory('UserService',[
 			});
 		};
 		return {
-			authUser:authUser,
+			authUser:function(){
+				if(authUser){
+					return authUser.user||null;
+				}
+				return null;
+			},
 			getAuthUser:getAuthUser,
 			getUser:getUser
 		};

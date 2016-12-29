@@ -1,11 +1,45 @@
-<div class="container dashboardSec">
-	<div class="row" ng-show="!contentLoaded">
-		<loader></loader>
-	</div>
-	<div class="row" ng-if="contentLoaded">
-		<user-info data-user="user"></user-info>
-		<div class="col s12 l8 offset-l2">
-			<new-post-card data-content="content"></new-post-card>
-		</div>
-	</div>
+<md-dialog aria-label="Mango (Fruit)">
+	<form name="frmPost" ng-cloak>
+		<md-toolbar class="blue">
+			<div class="md-toolbar-tools">
+				<h2>New Post</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="cancel()">
+					<md-icon aria-label="Close dialog" class="material-icons">close</md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+		<md-dialog-content>
+			<div class="red-text">
+				{{err.message}}
+			</div>
+			<div class="md-dialog-content">
+				<md-input-container class="md-block">
+					<label>What you have to say:</label>
+					<textarea ng-model="content.text" style="min-width:250px" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+				</md-input-container>
+			</div>
+		</md-dialog-content>
+
+		<md-dialog-actions layout="row">
+			<md-button class="red" ng-click="cancel()">
+				Cancel
+			</md-button>
+			<md-button class="blue" ng-click="save(content)" ng-disabled="savingContent">
+				<span ng-show="!savingContent">Save</span>
+				<span ng-show="savingContent">Saving...</span>
+			</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>
+
+<!-- <div class="container dashboardSec">
+<div class="row" ng-show="!contentLoaded">
+<loader></loader>
 </div>
+<div class="row" ng-if="contentLoaded">
+<div class="col s12 l8 offset-l2">
+<new-post-card data-content="content"></new-post-card>
+</div>
+</div>
+</div> -->

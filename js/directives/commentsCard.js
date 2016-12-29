@@ -1,4 +1,4 @@
-angular.module('landing').directive('commentsCard',function(urls){
+angular.module('landing').directive('commentsCard',function(urls,embed){
 	return {
 		restrict : 'E',
 		templateUrl:urls.root+'js/directives/templates/commentsCard.html',
@@ -6,6 +6,7 @@ angular.module('landing').directive('commentsCard',function(urls){
 			contentid: '='
 		},
 		controller:function($scope,$sce,$timeout,CommentService){
+			$scope.options=embed.options;
 			$scope.commentsLoaded = false;
 			var refreshComments =function(){
 				$scope.commentsLoaded = false;

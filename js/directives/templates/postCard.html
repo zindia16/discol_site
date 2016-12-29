@@ -1,4 +1,4 @@
-<div class="card sticky-action" ng-class="getContentBg(content.content_type)">
+<div class="card sticky-action">
 	<div class="card-image waves-effect waves-block waves-light">
 		<span class="category_icon valign-wrapper" ng-bind-html="getContentIcon(content.content_type)"></span>
 		<img ng-hide="content.video_link" class="activator responsive-img" ng-src="{{content.header_image_link}}" ng-init="content.header_image_link = content.header_image_link ||  '../images/baby.jpg'">
@@ -6,18 +6,20 @@
 	</div>
 	<div class="card-content">
 		<p><img  class="userPic" ng-src="{{content.user.profile_picture}}" ng-init="content.user.profile_picture = content.user.profile_picture || '../images/user.png'" alt="User"/></p>
-		<span class="card-title"><a ng-href="javascript:void(0)" class="white-text">{{content.content_type}}</a>
-			<i class="material-icons white-text" data-activates='postMoreAction' data-constrainwidth="false" dropdown data-hover="false" data-beloworigin="true" data-alignment="right">more_vert</i>
+		<span class="card-title"><a ng-href="javascript:void(0)">{{content.content_type}}</a>
+			<i class="material-icons" data-activates='postMoreAction' data-constrainwidth="false" dropdown data-hover="false" data-beloworigin="true" data-alignment="right">more_vert</i>
 		</span>
-		<p class="userName">
+		<p>
 			{{content.user.first_name}} {{content.user.last_name}} |
 			{{content.created | date}}
 		</p>
-		<p class="white-text">
-			{{content.text}}
-		</p>
+		<!-- <p class="" ng-bind-html="content.text | embed"></p> -->
+		<ng-embed
+			embed-data="content.text"
+			embed-options="options"
+		></ng-embed>
 	</div>
-	<div class="card-action clearfix">
+	<div class="card-action clearfix" ng-class="getContentBg(content.content_type)">
 		<div class="chip ">
 			<i class="material-icons white-text">thumb_up</i>{{content.like_count}}
 		</div>

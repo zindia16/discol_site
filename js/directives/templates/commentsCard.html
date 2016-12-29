@@ -23,7 +23,10 @@
 					<span class="title">
 						{{comment.user.first_name}} {{comment.user.last_name}} | {{comment.created | date}}
 					</span>
-					<p>{{comment.text}}</p>
+					<ng-embed
+						embed-data="comment.text"
+						embed-options="options"
+					></ng-embed>
 					<a href="#!" class="secondary-content grey-text"><i class="material-icons">thumb_up</i></a>
 				</li>
 			</ul>

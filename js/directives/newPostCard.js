@@ -5,11 +5,12 @@ angular.module('landing').directive('newPostCard',function(urls){
 		scope:{
 			content: '=content'
 		},
-		controller:function($scope,$sce,ContentService){
+		controller:function($scope,$sce,$location,ContentService){
 			$scope.content.content_type="post";
 			$scope.content.created=new Date();
 			$scope.content.is_published=true;
 			$scope.content.video_link="";
+
 			$scope.getContentBg = function(contentType){
 				switch(contentType){
 					case 'post':
@@ -37,11 +38,13 @@ angular.module('landing').directive('newPostCard',function(urls){
 					text:content.text,
 					video_link:content.video_link
 				};
-				
+
 				$scope.savingContent=true;
 				ContentService.savePost(data,function(res){
+					console.log(res);
 					Materialize.toast('Your post was successful!', 4000);
 					$scope.savingContent=false;
+					$location.path('/post/'+res.content.id);
 				},function(err){
 					Materialize.toast('Error! Your post saving failed!', 4000);
 					$scope.savingContent=false;
