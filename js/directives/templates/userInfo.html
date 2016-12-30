@@ -1,20 +1,57 @@
-<a href="javascript:void(0);" data-activates="nav-mobile-inner" data-sidenav="left" data-menuwidth="250" data-closeonclick="false" class="button-collapse hide-on-large-only btn-floating blue"><i class="material-icons">person</i></a>
-<div class="col s12 l2">
-	<ul id="nav-mobile-inner" class="side-nav fixed inner-sideNav">
-		<li><div class="userView no-pad center">
-			<div class="background">
-				<img src="../images/img9.jpg">
-			</div>
-			<p class="svgImg">
-				<svg width="100%" height="50" viewBox="0 0 100 100" preserveAspectRatio="none">
-					<path d="M0 0 L0 100 L56 100 Z" style="fill:#ffffff;" />
-					<path d="M100 0 L44 100 L100 100 Z" style="fill:#ffffff;" />
-				</svg>
-			</p>
-			<a href="#!user" class="sideNav_userPic"><img class="circle" src="../images/peep01.jpg"></a>
-			<a href="#!name" class="sideNav_userName"><span class="white-text name">{{user.first_name}} {{user.last_name}}</span></a>
-		</div></li>
-		<li class="white-text"><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-		<li class="white-text"><div class="divider"></div></li>
-	</ul>
-</div>
+	<div class="hide-on-large-only">
+		<a href="javascript:void(0);" data-activates="nav-mobile-inner" data-sidenav="left" data-menuwidth="250" data-closeonclick="false" class="button-collapse hide-on-large-only btn-floating blue"><i class="material-icons">person</i></a>
+		<div class="col s12 l2">
+			<ul id="nav-mobile-inner" class="side-nav inner-sideNav">
+				<li>
+					<div class="userView no-pad center">
+						<div class="background">
+						<p class="svgImg">
+							<svg width="100%" height="50" viewBox="0 0 100 100" preserveAspectRatio="none">
+								<path d="M0 0 L0 100 L56 100 Z" style="fill:#ffffff;" />
+								<path d="M100 0 L44 100 L100 100 Z" style="fill:#ffffff;" />
+							</svg>
+						</p>
+							<img src="../images/img9.jpg" class="responsive-img">
+						</div>
+						<div class="userInfo-cont">
+							<a href="#!user" class="sideNav_userPic">
+								<img class="circle" src="../images/peep01.jpg">
+							</a>
+							<a href="#!name" class="sideNav_userName">
+								<span class="white-text name">{{user.first_name}} {{user.last_name}}</span>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="white-text"><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+				<li class="white-text"><div class="divider"></div></li>
+			</ul>
+		</div>
+	</div>
+	<div class="hide-on-med-and-down">	
+		<ul id="nav-mobile-inner" class="inner-sideNav">
+			<li>
+				<div class="userView no-pad center">
+					<div class="background">
+					<p class="svgImg">
+						<svg width="100%" height="50" viewBox="0 0 100 100" preserveAspectRatio="none">
+							<path d="M0 0 L0 100 L56 100 Z" style="fill:#ffffff;" />
+							<path d="M100 0 L44 100 L100 100 Z" style="fill:#ffffff;" />
+						</svg>
+					</p>
+						<img src="../images/img9.jpg" class="responsive-img">
+					</div>
+					<div class="userInfo-cont">
+					<a href="#!user" class="sideNav_userPic">
+						<img class="circle" src="../images/peep01.jpg">
+					</a>
+					<a href="#!name" class="sideNav_userName">
+						<span class="white-text name">{{user.first_name}} {{user.last_name}}</span>
+					</a>
+					</div>
+				</div>
+			</li>
+			<li class="white-text"><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+			<li class="white-text"><div class="divider"></div></li>
+		</ul>	
+	</div>

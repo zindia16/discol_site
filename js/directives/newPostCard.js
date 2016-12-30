@@ -44,7 +44,7 @@ angular.module('landing').directive('newPostCard',function(urls){
 					console.log(res);
 					Materialize.toast('Your post was successful!', 4000);
 					$scope.savingContent=false;
-					$location.path('/post/'+res.content.id);
+					$location.path('/posts/'+res.content.id);
 				},function(err){
 					Materialize.toast('Error! Your post saving failed!', 4000);
 					$scope.savingContent=false;

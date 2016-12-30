@@ -1,8 +1,8 @@
 <div class="card sticky-action">
 	<div class="card-image waves-effect waves-block waves-light">
 		<span class="category_icon valign-wrapper" ng-bind-html="getContentIcon(content.content_type)"></span>
-		<img ng-hide="content.video_link" class="activator responsive-img" ng-src="{{content.header_image_link}}" ng-init="content.header_image_link = content.header_image_link ||  '../images/baby.jpg'">
-		<embed-video ng-show="content.video_link" width="100%" height="300px" href="{{content.video_link}}"></embed-video>
+		<img ng-hide="content.header.video_url" class="responsive-img" ng-src="{{content.header.image_url}}">
+		<embed-video ng-show="content.header.video_url" width="100%" height="300px" href="{{content.header.video_url}}"></embed-video>
 	</div>
 	<div class="card-content">
 		<p><img  class="userPic" ng-src="{{content.user.profile_picture}}" ng-init="content.user.profile_picture = content.user.profile_picture || '../images/user.png'" alt="User"/></p>
@@ -13,10 +13,11 @@
 			{{content.user.first_name}} {{content.user.last_name}} |
 			{{content.created | date}}
 		</p>
-		<!-- <p class="" ng-bind-html="content.text | embed"></p> -->
+		<!-- <pre>{{content | json}}</pre> -->
 		<ng-embed
 			embed-data="content.text"
 			embed-options="options"
+			style="word-wrap:break_word !important"
 		></ng-embed>
 	</div>
 	<div class="card-action clearfix" ng-class="getContentBg(content.content_type)">

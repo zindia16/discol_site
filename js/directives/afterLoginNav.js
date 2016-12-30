@@ -9,7 +9,9 @@ angular.module('landing').directive('afterLoginNav',function(urls){
 					templateUrl: urls.root+'home/views/newPost.html',
 					parent: angular.element(document.body),
 					targetEvent: ev,
-					clickOutsideToClose: true
+					clickOutsideToClose: false,
+					disableParentScroll: true,
+					fullscreen:false
 				});
 			};
 

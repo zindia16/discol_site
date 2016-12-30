@@ -5,7 +5,8 @@ angular.module('landing',[
 	'ngStorage',
 	'oc.lazyLoad',
 	'videosharing-embed',
-	'ngEmbed'
+	'ngEmbed',
+	'angularTrix'
 ]);
 
 angular.module('landing').constant('urls',{

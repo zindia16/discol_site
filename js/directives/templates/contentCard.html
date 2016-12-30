@@ -1,8 +1,8 @@
 <div class="card sticky-action" ng-class="getContentBg(content.content_type)">
 	<div class="card-image waves-effect waves-block waves-light" style="height:250px">
 		<span class="category_icon valign-wrapper" ng-bind-html="getContentIcon(content.content_type)"></span>
-		<img style="height:100%" ng-hide="content.video_link" class="activator responsive-img" ng-src="{{content.header_image_link}}" ng-init="content.header_image_link = content.header_image_link ||  '../images/baby.jpg'">
-		<embed-video ng-show="content.video_link" width="100%" height="250px" href="{{content.video_link}}"></embed-video>
+		<img style="height:100%" ng-hide="content.header.video_url" class="activator responsive-img" ng-src="{{content.header.image_url}}">
+		<embed-video ng-show="content.header.video_url" width="100%" height="250px" href="{{content.header.video_url}}"></embed-video>
 	</div>
 	<div class="card-content">
 		<p>

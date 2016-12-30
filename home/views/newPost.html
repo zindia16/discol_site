@@ -1,6 +1,6 @@
-<md-dialog aria-label="Mango (Fruit)">
+<md-dialog aria-label="Your Post" >
 	<form name="frmPost" ng-cloak>
-		<md-toolbar class="blue">
+		<!-- <md-toolbar class="blue">
 			<div class="md-toolbar-tools">
 				<h2>New Post</h2>
 				<span flex></span>
@@ -8,20 +8,38 @@
 					<md-icon aria-label="Close dialog" class="material-icons">close</md-icon>
 				</md-button>
 			</div>
-		</md-toolbar>
+		</md-toolbar> -->
 		<md-dialog-content>
-			<div class="red-text">
-				{{err.message}}
-			</div>
-			<div class="md-dialog-content">
+			<div class="md-padding">
+				<label>What are you upto? (Your post will be shared to community.)</label>
+				<div class="red-text">
+					{{err.message}}
+				</div>
 				<md-input-container class="md-block">
-					<label>What you have to say:</label>
-					<textarea ng-model="content.text" style="min-width:250px" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+					<!-- <trix-editor angular-trix ng-model="content.text"></trix-editor> -->
+					<textarea area-label="What are you upto?" ng-model="content.text" md-maxlength="500" rows="5" cols="50" md-select-on-focus></textarea>
 				</md-input-container>
+				<div>
+					<fieldset class="standard">
+						<legend>Sharing Options</legend>
+						<div class="row" >
+							<div class="col m6">
+								<input type="checkbox" id="is_published" ng-model="content.is_published" />
+      							<label for="is_published">Publish</label>
+							</div>
+							<div class="col m6">
+								<input type="checkbox" id="is_comment_allowed" checked="checked" ng-model="content.is_comment_allowed" />
+      							<label for="is_comment_allowed" checked="checked" ng-model="content.is_comment_allowed">Allow comments</label>
+							</div>
+						</div>
+					</fieldset>
+					<!-- <pre>{{content | json}}</pre> -->
+				</div>
 			</div>
 		</md-dialog-content>
 
 		<md-dialog-actions layout="row">
+			<span flex></span>
 			<md-button class="red" ng-click="cancel()">
 				Cancel
 			</md-button>
