@@ -93,6 +93,12 @@ backface-visibility: hidden;}
     margin: 0 32px 0 0;
     width: 24px;
     color: rgba(0,0,0,0.54);}
+.svgImg {
+    width: 100%;
+    position: absolute;
+    bottom: -12px;
+    margin: 0;
+}
 
 .inner-sideNav .userInfo-cont{position: absolute; top: 1.5em; width:100%;}
 .inner-sideNav .userInfo-cont a{display: block;}
