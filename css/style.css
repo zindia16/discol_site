@@ -54,6 +54,8 @@ nav .brand-logo {
 nav.dscl_inner_nav, nav.dscl_inner_nav .nav-wrapper i{box-shadow:none;  height:50px; line-height: 50px;}
 .userView{position: relative;}
 .side-nav.inner-sideNav{padding-top: 42px; background: #fff; color: #333;}
+.side-nav.inner-sideNav li + li, .inner-sideNav li + li{margin: 0 10px;}
+.side-nav.inner-sideNav li a:hover, .inner-sideNav li a:hover, .side-nav.inner-sideNav li a:focus, .inner-sideNav li a:focus, .side-nav.inner-sideNav li a.active, .inner-sideNav li a.active{color:#039be5;} 
 .side-nav.inner-sideNav .userView .background{position: relative;}
 .side-nav.inner-sideNav .svgImg{width:100%; position: absolute; bottom:12px; margin: 0; z-index: 2}
 .side-nav.inner-sideNav .sideNav_userPic{padding:3em 0 0 0 !important; position: static;}
@@ -70,12 +72,12 @@ transform:none;
 height: 100%;
 /*height: calc(100% + 60px);
 height: -moz-calc(100%);*/
-padding-bottom: 60px;
+padding-bottom: 20px;
 background-color: #fff;
 -webkit-backface-visibility: hidden;
 backface-visibility: hidden;}
 .inner-sideNav .background{position: relative;}
-.inner-sideNav .svgImg{width:100%; position: absolute; bottom:-1px; margin: 0;}
+.inner-sideNav .svgImg{width:100%; position: absolute; bottom:-2px; margin: 0;}
 .inner-sideNav .sideNav_userPic{padding:3em 0 0 0 !important;}
 .inner-sideNav .sideNav_userPic img{margin:0 auto; width:100px; height: 100px;}
 .inner-sideNav > li > a{

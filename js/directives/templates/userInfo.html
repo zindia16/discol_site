@@ -3,45 +3,42 @@
 		<div class="col s12 l2">
 			<ul id="nav-mobile-inner" class="side-nav inner-sideNav">
 				<li>
-					<div class="userView no-pad center">
-						<div class="background">
-						<p class="svgImg">
-							<svg width="100%" height="50" viewBox="0 0 100 100" preserveAspectRatio="none">
-								<path d="M0 0 L0 100 L56 100 Z" style="fill:#ffffff;" />
-								<path d="M100 0 L44 100 L100 100 Z" style="fill:#ffffff;" />
-							</svg>
-						</p>
-							<img src="../images/img9.jpg" class="responsive-img">
-						</div>
-						<div class="userInfo-cont">
-							<ul class="right hide-on-med-and-down">
-							<li ng-class="getClass('/posts')">
-								<a href="#!/posts" class="blue-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Posts"><i class="material-icons">send</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="deep-orange-text text-lighten-2" tooltipped data-position="bottom" data-delay="50" data-tooltip="Blogs"><i class="material-icons">edit</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="yellow-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Ideas"><i class="material-icons">wb_incandescent</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="orange-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Brainstorm"><i class="material-icons">flash_on</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="red-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Goals"><i class="material-icons">my_location</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="teal-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Projects"><i class="material-icons">terrain</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" ><span class="new badge red" style="margin-left: -25px;">4</span><i class="material-icons left">notifications</i></a>
-							</li>
-						</ul>
-						</div>
+				<div class="userView no-pad center">
+					<div class="background">
+					<p class="svgImg">
+						<svg width="100%" height="50" viewBox="0 0 100 100" preserveAspectRatio="none">
+							<path d="M0 0 L0 100 L56 100 Z" style="fill:#ffffff;" />
+							<path d="M100 0 L44 100 L100 100 Z" style="fill:#ffffff;" />
+						</svg>
+					</p>
+						<img src="../images/img9.jpg" class="responsive-img">
 					</div>
-				</li>
-				<li class="white-text"><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-				<li class="white-text"><div class="divider"></div></li>
+                    <a href="#!user" class="sideNav_userPic"><img class="circle" src="../images/peep01.jpg"></a>
+                    <a href="#!name" class="sideNav_userName"><span>John Doe</span></a>
+				</div>
+			</li>
+            <li class="white-text" ng-class="getClass('/posts')">
+								<a href="#!/posts" class="active"><i class="material-icons blue-text">send</i>My Posts</a></li>
+            <li class="white-text"><div class="divider"></div></li>
+            <li>
+								<a href="javascript:void(0);"><i class="material-icons deep-orange-text text-lighten-2">edit</i>My Blogs</a>
+							</li>
+            <li class="white-text"><div class="divider"></div></li>
+							<li>
+								<a href="javascript:void(0);"><i class="material-icons yellow-text">wb_incandescent</i>My Ideas</a>
+							</li>
+            <li class="white-text"><div class="divider"></div></li>
+							<li>
+								<a href="javascript:void(0);"><i class="material-icons orange-text">flash_on</i>My Brainstroms</a>
+							</li>
+            <li class="white-text"><div class="divider"></div></li>
+							<li>
+								<a href="javascript:void(0);"><i class="material-icons red-text">my_location</i>My Goals</a>
+							</li>
+            <li class="white-text"><div class="divider"></div></li>
+							<li>
+								<a href="javascript:void(0);"><i class="material-icons teal-text">terrain</i>My Projects</a>
+							</li>
 			</ul>
 		</div>
 	</div>
@@ -58,34 +55,31 @@
 					</p>
 						<img src="../images/img9.jpg" class="responsive-img">
 					</div>
-					<div class="userInfo-cont">
-						<ul class="right hide-on-med-and-down">
-							<li ng-class="getClass('/posts')">
-								<a href="#!/posts" class="blue-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Posts"><i class="material-icons">send</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="deep-orange-text text-lighten-2" tooltipped data-position="bottom" data-delay="50" data-tooltip="Blogs"><i class="material-icons">edit</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="yellow-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Ideas"><i class="material-icons">wb_incandescent</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="orange-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Brainstorm"><i class="material-icons">flash_on</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="red-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Goals"><i class="material-icons">my_location</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" class="teal-text" tooltipped data-position="bottom" data-delay="50" data-tooltip="Projects"><i class="material-icons">terrain</i></a>
-							</li>
-							<li>
-								<a href="javascript:void(0);" ><span class="new badge red" style="margin-left: -25px;">4</span><i class="material-icons left">notifications</i></a>
-							</li>
-						</ul>
-					</div>
+                    <a href="#!user" class="sideNav_userPic"><img class="circle" src="../images/peep01.jpg"></a>
+                    <a href="#!name" class="sideNav_userName"><span>John Doe</span></a>
 				</div>
 			</li>
-			<li class="white-text"><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-			<li class="white-text"><div class="divider"></div></li>
+            <li class="white-text" ng-class="getClass('/posts')">
+								<a href="#!/posts" class="active"><i class="material-icons blue-text">send</i>My Posts</a></li>
+            <li class="white-text"><div class="divider"></div></li>
+            <li>
+								<a href="javascript:void(0);"><i class="material-icons deep-orange-text text-lighten-2">edit</i>My Blogs</a>
+							</li>
+            <li class="white-text"><div class="divider"></div></li>
+							<li>
+								<a href="javascript:void(0);"><i class="material-icons yellow-text">wb_incandescent</i>My Ideas</a>
+							</li>
+            <li class="white-text"><div class="divider"></div></li>
+							<li>
+								<a href="javascript:void(0);"><i class="material-icons orange-text">flash_on</i>My Brainstroms</a>
+							</li>
+            <li class="white-text"><div class="divider"></div></li>
+							<li>
+								<a href="javascript:void(0);"><i class="material-icons red-text">my_location</i>My Goals</a>
+							</li>
+            <li class="white-text"><div class="divider"></div></li>
+							<li>
+								<a href="javascript:void(0);"><i class="material-icons teal-text">terrain</i>My Projects</a>
+							</li>
 		</ul>	
 	</div>
