@@ -1,4 +1,4 @@
-<div class="card sticky-action">
+<div class="card cust-card sticky-action">
 	<div class="card-image waves-effect waves-block waves-light">
 		<span class="category_icon valign-wrapper" ng-bind-html="getContentIcon(content.content_type)"></span>
 		<img ng-hide="content.header.video_url" class="responsive-img" ng-src="{{content.header.image_url}}">
@@ -33,10 +33,12 @@
 	</div>
 </div>
 
-<ul id='postMoreAction' class='dropdown-content'>
-    <li><a href="javascript:void(0);"><i class="material-icons right">star</i>Make Favourite</a></li>
+<ul id='postMoreAction' class='dropdown-content shortLinks'>
+    <li><a href="javascript:void(0);">Make Favourite</a></li>
+    <li class="divider"></li>
     <li><a href="javascript:void(0);">Link 2</a></li>
     <li class="divider"></li>
     <li><a href="javascript:void(0);">Link 4</a></li>
+    <li class="divider"></li>
     <li><a href="javascript:void(0);">Link 5</a></li>
 </ul>

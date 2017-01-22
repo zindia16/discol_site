@@ -8,7 +8,7 @@
  /*===== global css ======*/
  html {
 box-sizing: border-box;
-font-size: 1em;
+font-size: 14px;
 font-family: 'Open Sans', sans-serif;
 font-weight: 400;
 }
@@ -29,6 +29,7 @@ p {
 .marg-bot-2{margin-bottom: 2rem;}
 .pad_tb_3{padding-top: 3%; padding-bottom: 3%;}
 .pad_tb_10{padding: 10% 0;}
+.no-bordered{border:0px;}
 
 /*===== nav css ======*/
 nav ul a,
@@ -48,63 +49,31 @@ nav .brand-logo {
 .dscl-fixed-nav.navbar-fixed{z-index: 9999;}
 .dscl_nav ul a{color: #fff;}
 .dscl_nav .brand-logo, .dscl_inner_nav .brand-logo{margin-top: 0.4rem; margin-left: 0.5em;}
+
 .dscl_nav .side-nav li a{color: #474747 !important;}
 .dscl_nav .side-nav li a:hover{color: #fff !important;}
 .dscl_nav .side-nav li:hover{background: teal}
 nav.dscl_inner_nav, nav.dscl_inner_nav .nav-wrapper i{box-shadow:none;  height:50px; line-height: 50px;}
 .userView{position: relative;}
-.side-nav.inner-sideNav{padding-top: 42px; background: #fff; color: #333;}
-.side-nav.inner-sideNav li + li, .inner-sideNav li + li{margin: 0 10px;}
-.side-nav.inner-sideNav li a:hover, .inner-sideNav li a:hover, .side-nav.inner-sideNav li a:focus, .inner-sideNav li a:focus, .side-nav.inner-sideNav li a.active, .inner-sideNav li a.active{color:#039be5;} 
-.side-nav.inner-sideNav .userView .background{position: relative;}
-.side-nav.inner-sideNav .svgImg{width:100%; position: absolute; bottom:12px; margin: 0; z-index: 2}
-.side-nav.inner-sideNav .sideNav_userPic{padding:3em 0 0 0 !important; position: static;}
-.side-nav.inner-sideNav .sideNav_userPic img{margin:0 auto;}
-.side-nav.inner-sideNav .sideNav_userName{margin-top:1em; padding:0.2em 0 2em 0 !important; font-weight: bold;}
-.side-nav.inner-sideNav .sideNav_userName span{position: relative; top: 2.6em;}
-.side-nav.inner-sideNav .userInfo-cont{position: absolute; top: 0em; width:100%;}
-.side-nav.inner-sideNav .userInfo-cont a{display: block;}
-.inner-sideNav{
-width: 100%;
-margin: 0.5em 0 0 0;
--webkit-transform:none;
-transform:none;
-height: 100%;
-/*height: calc(100% + 60px);
-height: -moz-calc(100%);*/
-padding-bottom: 20px;
-background-color: #fff;
--webkit-backface-visibility: hidden;
-backface-visibility: hidden;}
-.inner-sideNav .background{position: relative;}
-.inner-sideNav .svgImg{width:100%; position: absolute; bottom:-2px; margin: 0;}
-.inner-sideNav .sideNav_userPic{padding:3em 0 0 0 !important;}
-.inner-sideNav .sideNav_userPic img{margin:0 auto; width:100px; height: 100px;}
-.inner-sideNav > li > a{
-    color: rgba(0,0,0,0.87);
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    height: 48px;
-    line-height: 48px;
-  }
-.inner-sideNav li>a>i, .inner-sideNav li>a>i.material-icons
-    {float: left;
-    height: 48px;
-    line-height: 48px;
-    margin: 0 32px 0 0;
-    width: 24px;
-    color: rgba(0,0,0,0.54);}
+.side-nav.inner-sidenav{padding-top: 42px; background: #fff; color: #333;}
+.side-nav.inner-sidenav li + li{margin: 0 10px;}
+.side-nav li a:hover, .inner-sideNav li a:hover, .side-nav.inner-sideNav li a:focus, .inner-sideNav li a:focus, .side-nav li a.active, .inner-sideNav li a.active{color:#039be5;} 
+.side-nav.inner-sidenav .userView .background{position: relative;}
+.side-nav.inner-sideNav .svgImg{width:100%; position: absolute; bottom:10px; margin: 0; z-index: 2}
+.side-nav.inner-sidenav .user-info{width:100%; position: absolute; top: 28px; left: 0;}
+.side-nav.inner-sidenav .sideNav_userPic{height: auto;}
+.side-nav.inner-sidenav .sideNav_userPic img{margin:0 auto;}
+.side-nav.inner-sidenav .sideNav_userName{ padding:0.2em 0 0em 0 !important; font-weight: bold; color: #fff; height:auto;}
+.sideNav_userName span{background-color: rgba(0, 0, 0, 0.5); border-radius: 15px; -moz-border-radius: 15px; -webkit-border-radius: 15px; padding: 5px 15px;}
+
 .svgImg {
     width: 100%;
     position: absolute;
-    bottom: -12px;
+    bottom: 8px;
     margin: 0;
 }
-
-.inner-sideNav .userInfo-cont{position: absolute; top: 1.5em; width:100%;}
-.inner-sideNav .userInfo-cont a{display: block;}
-
+.side-nav.inner-sidenav a{padding: 0 15px;}
+.side-nav.inner-sidenav li > a > i.material-icons{margin-right: 10px;}
 #index-banner{position: relative; min-height: 42rem;}
 .pad_tb_7{padding: 7% 0;}
 .indexbtnDiv{position: absolute; width:auto; left:50%; margin-left: -128px; bottom: -40%;}
@@ -145,7 +114,13 @@ background-size:cover;}
 .socialLinks li{display: inline-block; margin: 0 2px;}
 .socialLinks li a:hover, .footLinks li a:hover{color: #000;}
 .userName{color:rgba(255, 255, 255, 0.9) !important; font-size: 14px;}
-
+.innerNav_shortBtn{position: absolute; top: 15px; left:15px; z-index: 9999;}
+.fixed-action-btn.cust-fixed-action-btn ul li{height:45px; margin-bottom: 10px;}
+.cust-card .card-action{padding: 10px;}
+.cust-card .card-reveal{word-wrap: break-word;}
+.userInfo{font-size: 13px !important;}
+.userInfo span{color:#434343;}
+.dropdown-content.shortLinks li > a{font-size: 14px !important; font-weight:normal !important; margin-top: 0px !important;}
 
 @media screen and (max-width:599px) {
   .pad_tb_7{padding: 32% 0;}
@@ -291,4 +266,7 @@ h4.captionTxt{color: rgba(255,255,255,.9); font-weight: 300;}
   #index-banner .section {
     top: 0;
   }
+}
+@media only screen and (max-width:768px){
+    .dscl_inner_nav .brand-logo{margin-left: 0;}
 }
