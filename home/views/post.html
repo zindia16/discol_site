@@ -2,12 +2,12 @@
 	<div class="row" ng-show="!contentLoaded">
 		<loader></loader>
 	</div>
-	<div class="row">
+	<div class="row" ng-if="contentLoaded">
 		<div class="col m4">
 			<user-info data-user="content.user"></user-info>
 		</div>
 		
-		<div class="col m8 s12">
+		<div class="col m6 s12">
 			<post-card data-content="content"></post-card>
 			<comments-card ng-if="content.id" data-contentid="content.id"></comments-card>
 		</div>
