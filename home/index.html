@@ -28,9 +28,15 @@
 <body data-ng-app='landing' data-ng-controller="Main" data-ng-cloak>
 
 	<after-login-nav></after-login-nav>
-	<div class="" ng-view>
-
+	<div class="row">
+		<div class="col s12 m2">
+			<user-info user="null"></user-info>
+		</div>
+		<div class="col s12 m10" ng-view>
+			<!-- Dynamic load vie -->
+		</div>
 	</div>
+
 	<!-- <footer-custom></footer-custom> -->
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
@@ -53,11 +59,18 @@
 
 	<!-- custom codes -->
 	<script src="app.js" charset="utf-8"></script>
+	<script src="router.js" charset="utf-8"></script>
+
+	<!-- Services -->
+	<script src="../js/services/user.service.js" charset="utf-8"></script>
 
 	<!-- Directives -->
 	<script src="../js/directives/afterLoginNav.js" charset="utf-8"></script>
 	<script src="../js/directives/footer.directive.js" charset="utf-8"></script>
 	<script src="../js/directives/loader.directive.js" charset="utf-8"></script>
+	<script src="../js/directives/userInfo.js" charset="utf-8"></script>
+
+
 
 	<!-- Controllers -->
 	<script src="../js/controllers/newPost.controller.js" charset="utf-8"></script>

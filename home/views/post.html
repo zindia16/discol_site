@@ -1,16 +1,18 @@
-<div class="container dashboardSec">
-	<div class="row" ng-show="!contentLoaded">
-		<loader></loader>
+<div class="dashboardSec">
+	<div class="row">
+		<div class="col m6">
+			<div class="row" ng-show="!contentLoaded">
+				<loader></loader>
+			</div>
+			<div class="col m12 s12" ng-if="contentLoaded">
+				<post-card data-content="content"></post-card>
+				<comments-card ng-if="content.id" data-contentid="content.id"></comments-card>
+			</div>
+		</div>
+		<div class="col m6">
+			<dummy-content>Not Loaded<dummy-content>
+		</div>
 	</div>
-	<div class="row" ng-if="contentLoaded">
-		<div class="col m4">
-			<user-info data-user="content.user"></user-info>
-		</div>
-		
-		<div class="col m6 s12">
-			<post-card data-content="content"></post-card>
-			<comments-card ng-if="content.id" data-contentid="content.id"></comments-card>
-		</div>
 
-	</div>
+
 </div>

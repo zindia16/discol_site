@@ -1,12 +1,14 @@
 <div class="card cust-card sticky-action">
-	<div class="card-image waves-effect waves-block waves-light" style="height:250px">
+	<div class="card-image waves-effect waves-block waves-light" style="height:250px" ng-show="content.header.image_url || content.header.video_url">
 		<span class="category_icon valign-wrapper" ng-bind-html="getContentIcon(content.content_type)"></span>
 		<img ng-hide="content.header.video_url" class="activator responsive-img" ng-src="{{content.header.image_url}}">
 		<embed-video ng-show="content.header.video_url" width="100%" height="250px" href="{{content.header.video_url}}"></embed-video>
 	</div>
 	<div class="card-content" ng-class="getContentBg(content.content_type)">
 		<p>
-			<a href="javascript:void(0)"><img  class="userPic" ng-src="{{content.user.profile_picture}}" ng-init="content.user.profile_picture = content.user.profile_picture || '../images/user.png'" alt="User"/></a>
+			<a href="javascript:void(0)">
+				<img  class="userPic" ng-src="{{content.user.profile_picture}}" ng-init="content.user.profile_picture = content.user.profile_picture || '../images/user.png'" alt="User"/>
+			</a>
 		</p>
 
 		<span class="card-title"><a ng-href="#!/posts/{{content.id}}" class="white-text truncate">{{content.content_type}}</a><i class="material-icons activator white-text">more_vert</i></span>

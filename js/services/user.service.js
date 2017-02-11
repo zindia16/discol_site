@@ -6,7 +6,7 @@ angular.module('landing').factory('UserService',[
 			$http.get(urls.api+'Users/getAuthUser.json')
 			.then(function(res){
 				authUser=res.data;
-				console.log(res.data);
+				//console.log(res.data);
 				success(res.data);
 			})
 			.catch(function(err){

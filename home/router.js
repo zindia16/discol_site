@@ -1,0 +1,102 @@
+angular.module('landing').config([
+	'$routeProvider','$locationProvider','$ocLazyLoadProvider','urls',
+	function($routeProvider,$locationProvider,$ocLazyLoadProvider,urls){
+		$ocLazyLoadProvider.config({
+			debug:true
+		});
+		$routeProvider
+		.when('/',{
+			templateUrl:"views/landing.html",
+			controller:'Content',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/contentCard.js',
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/controllers/content.controller.js',
+							urls.root+'js/directives/dummyContent.directive.js',
+						]
+					});
+				}]
+			}
+		})
+		.when('/dashboard',{
+			templateUrl:"views/dashboard.html",
+			controller:'Dashboard',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/userInfo.js',
+							urls.root+'js/services/user.service.js',
+							urls.root+'js/controllers/dashboard.controller.js'
+						]
+					});
+				}]
+			}
+		})
+		.when('/posts',{
+			templateUrl:"views/posts.html",
+			controller:'Posts',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/contentCard.js',
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/controllers/posts.controller.js',
+							urls.root+'js/directives/dummyContent.directive.js',
+						]
+					});
+				}]
+			}
+		})
+		.when('/posts/:id',{
+			templateUrl:"views/post.html",
+			controller:'Post',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/postCard.js',
+							urls.root+'js/directives/commentsCard.js',
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/services/comment.service.js',
+							urls.root+'js/controllers/post.controller.js',
+							urls.root+'js/directives/dummyContent.directive.js',
+						]
+					});
+				}]
+			}
+		})
+		.when('/post/new',{
+			templateUrl:"views/newPost.html",
+			controller:'Post',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/newPostCard.js',
+							urls.root+'js/directives/userInfo.js',
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/services/user.service.js',
+							urls.root+'js/controllers/post.controller.js'
+						]
+					});
+				}]
+			}
+		})
+		.otherwise({
+			redirectTo:'/'
+		});
+
+		// configure html5 to remove #!
+  		$locationProvider.html5Mode(false);
+	}
+]);

@@ -1,10 +1,15 @@
-<div class="container pad_tb_3 dashboardSec">
-	<div class="row" ng-show="!contentLoaded">
-		<loader></loader>
-	</div>
+<div class="pad_tb_3 dashboardSec">
 	<div class="row">
-		<div class="col m6 s12 l4" ng-repeat="content in contents">
-			<content-card data-content="content"></content-card>
+		<div class="col m6">
+			<div class="row" ng-show="!contentLoaded">
+				<loader></loader>
+			</div>
+			<div class="col m12 s12" ng-repeat="content in contents">
+				<content-card data-content="content"></content-card>
+			</div>
 		</div>
-	</div>
+		<div class="col m6">
+			<dummy-content>Not Loaded<dummy-content>
+		</div>
+	</div>	
 </div>

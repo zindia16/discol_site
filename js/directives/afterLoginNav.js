@@ -6,7 +6,7 @@ angular.module('landing').directive('afterLoginNav',function(urls){
 			$scope.showNewPostDialog = function(ev) {
 				$mdDialog.show({
 					controller: 'newPost',
-					templateUrl: urls.root+'home/views/newPost.html',
+					templateUrl: urls.root+'home/modals/newPost.html',
 					parent: angular.element(document.body),
 					targetEvent: ev,
 					clickOutsideToClose: false,
