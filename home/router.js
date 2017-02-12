@@ -16,7 +16,7 @@ angular.module('landing').config([
 							urls.root+'js/directives/contentCard.js',
 							urls.root+'js/services/content.service.js',
 							urls.root+'js/controllers/content.controller.js',
-							urls.root+'js/directives/dummyContent.directive.js',
+							urls.root+'js/directives/dummyContentMain.directive.js',
 						]
 					});
 				}]
@@ -30,7 +30,8 @@ angular.module('landing').config([
 					return $ocLazyLoad.load({
 						name:'homeDep',
 						files:[
-							urls.root+'js/controllers/dashboard.controller.js'
+							urls.root+'js/controllers/dashboard.controller.js',
+							urls.root+'js/directives/editSetting.directive.js'
 						]
 					});
 				}]
@@ -47,7 +48,7 @@ angular.module('landing').config([
 							urls.root+'js/directives/contentCard.js',
 							urls.root+'js/services/content.service.js',
 							urls.root+'js/controllers/posts.controller.js',
-							urls.root+'js/directives/dummyContent.directive.js',
+							urls.root+'js/directives/dummyContentPosts.directive.js',
 						]
 					});
 				}]
@@ -66,7 +67,7 @@ angular.module('landing').config([
 							urls.root+'js/services/content.service.js',
 							urls.root+'js/services/comment.service.js',
 							urls.root+'js/controllers/post.controller.js',
-							urls.root+'js/directives/dummyContent.directive.js',
+							urls.root+'js/directives/dummyContentPost.directive.js',
 						]
 					});
 				}]
