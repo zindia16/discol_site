@@ -3,7 +3,7 @@ angular.module('landing').controller('Dashboard',[
 	function($scope,$localStorage,urls,UserService,$timeout){
 		$scope.userLoaded=false;
 		$scope.loadUser = function(){
-			alert('hi');
+			
 			//ajax call only if user is not available in UserService
 			if(!UserService.authUser()){
 				UserService.getAuthUser(function(res){

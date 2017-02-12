@@ -30,8 +30,6 @@ angular.module('landing').config([
 					return $ocLazyLoad.load({
 						name:'homeDep',
 						files:[
-							urls.root+'js/directives/userInfo.js',
-							urls.root+'js/services/user.service.js',
 							urls.root+'js/controllers/dashboard.controller.js'
 						]
 					});
