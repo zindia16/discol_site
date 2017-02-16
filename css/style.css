@@ -12,6 +12,21 @@ font-size: 14px;
 font-family: 'Open Sans', sans-serif;
 font-weight: 400;
 }
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 h1, h2, h3, h4, h5, h6{font-weight: 300;}
 body{color: #434343; background: #f3f5fa; height: auto;}
 *,
@@ -27,10 +42,11 @@ p {
 .marg-top-1{margin-top: 1rem;}
 .marg-bot-1{margin-bottom: 1rem;}
 .marg-bot-2{margin-bottom: 2rem;}
+.marg-bot-3{margin-bottom: 3rem;}
 .pad_tb_3{padding-top: 3%; padding-bottom: 3%;}
 .pad_tb_10{padding: 10% 0;}
 .no-bordered{border:0px;}
-
+.pad_lr_2{padding-left: 2em; padding-right: 2em;}
 /*===== nav css ======*/
 nav ul a,
 nav .brand-logo {
@@ -45,6 +61,9 @@ nav .brand-logo {
 .ylw_btn:hover, .ylw_btn:focus {background:#f4dc15; box-shadow: none;}
 
 /*===== discol css ======*/
+.mainViewArea{margin-left:280px;}
+/*.rightPart{position: fixed; width:42%; right:0; top:50px; overflow-x: hidden; overflow-y: scroll; height:100%;}*/
+.rightpart{background:#fff;}
 .dscl_nav{background: transparent; box-shadow:none; transition: all ease 1s;}
 .dscl-fixed-nav.navbar-fixed{z-index: 9999;}
 .dscl_nav ul a{color: #fff;}
@@ -60,23 +79,29 @@ nav.dscl_inner_nav, nav.dscl_inner_nav .nav-wrapper i{box-shadow:none;  height:5
 .side-nav li a:hover, .inner-sideNav li a:hover, .side-nav.inner-sideNav li a:focus, .inner-sideNav li a:focus, .side-nav li a.active, .inner-sideNav li a.active{color:#039be5;} 
 .side-nav.inner-sidenav .userView .background{position: relative;}
 .side-nav.inner-sideNav .svgImg{width:100%; position: absolute; bottom:10px; margin: 0; z-index: 2}
-.side-nav.inner-sidenav .user-info{width:100%; position: absolute; top: 28px; left: 0;}
-.side-nav.inner-sidenav .sideNav_userPic{height: auto;}
-.side-nav.inner-sidenav .sideNav_userPic img{margin:0 auto;}
-.side-nav.inner-sidenav .sideNav_userName{ padding:0.2em 0 0em 0 !important; font-weight: bold; color: #fff; height:auto;}
-.sideNav_userName span{background-color: rgba(0, 0, 0, 0.5); border-radius: 15px; -moz-border-radius: 15px; -webkit-border-radius: 15px; padding: 5px 15px;}
-
+/*.side-nav.inner-sidenav .user-info{width:100%; position: absolute; top: 28px; left: 0;}*/
+.sideNav_userPic{padding:3em 0 0 0 !important; position: absolute; top:0px; left:50%; margin-left: -50px;}
+.sideNav_userPic img{margin:0 auto; width:100px !important; height: 100px !important;}
+.sideNav_userName{ font-weight: bold; font-size: 20px; margin:0;}
+.profile_edit_btn{width:30px; height: 30px; position: absolute; bottom: 10px; right: 0; color: #fff; display: flex; align-items: center; border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;}
+.profile_edit_btn i{margin-left: 5px; font-size: 20px;}
 .svgImg {
     width: 100%;
     position: absolute;
-    bottom: 8px;
+    bottom: -6px;
+    margin: 0;
+}
+.side-nav.inner-sidenav .svgImg{
+    width: 100%;
+    position: absolute;
+    bottom: 8px !important;
     margin: 0;
 }
 .side-nav.inner-sidenav a{padding: 0 15px;}
 .side-nav.inner-sidenav li > a > i.material-icons{margin-right: 10px;}
 #index-banner{position: relative; min-height: 42rem;}
 .pad_tb_7{padding: 7% 0;}
-.indexbtnDiv{position: absolute; width:auto; left:50%; margin-left: -128px; bottom: -40%;}
+.indexbtnDiv{position: absolute; width:auto; left:50%; margin-left: -128px; bottom: -30%;}
 
 .dscl_aboutDiv{background:#26a69a; color: #fff; text-align: center;}
 .dscl_aboutDiv p{margin:0; padding:1rem 0;}
@@ -115,6 +140,7 @@ background-size:cover;}
 .socialLinks li a:hover, .footLinks li a:hover{color: #000;}
 .userName{color:rgba(255, 255, 255, 0.9) !important; font-size: 14px;}
 .innerNav_shortBtn{position: absolute; top: 15px; left:15px; z-index: 9999;}
+.rigtPart_btn{position: absolute; top: 15px; right:65px; z-index: 9999;}
 .fixed-action-btn.cust-fixed-action-btn ul li{height:45px; margin-bottom: 10px;}
 .cust-card .card-action{padding: 10px;}
 .cust-card .card-reveal{word-wrap: break-word;}
@@ -253,10 +279,12 @@ h4.captionTxt{color: rgba(255,255,255,.9); font-weight: 300;}
   }
 
 @media only screen and (max-width : 992px) {
+  .mainViewArea{margin-left:0px;}
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
+  .dscl_nav .brand-logo, .dscl_inner_nav .brand-logo{margin-left: 0em;}
   #index-banner .section {
     top: 10%;
   }
