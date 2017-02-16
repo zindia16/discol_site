@@ -1,7 +1,7 @@
 <a href="javascript:void(0);" data-activates="nav-mobile-inner" data-sidenav="left" data-menuwidth="250" data-closeonclick="false" class="button-collapse hide-on-large-only innerNav_shortBtn"><i class="material-icons">person</i></a>
 <ul id="nav-mobile-inner" class="side-nav inner-sidenav fixed">
 	<li>
-		<div class="userView no-pad center">
+		<div class="userView no-pad center" ng-show="user">
 			<div class="background">
 				<p class="svgImg">
 					<svg width="100%" height="50" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -9,12 +9,12 @@
 						<path d="M100 0 L44 100 L100 100 Z" style="fill:#ffffff;" />
 					</svg>
 				</p>
-				<img src="../images/img9.jpg" class="responsive-img">
+				<img src="{{user.cover_image}}" style="min-height:150px" class="responsive-img">
 			</div>
-			<a href="#!user" class="sideNav_userPic"><img class="circle" src="../images/peep01.jpg"><span class="blue profile_edit_btn"><i class="material-icons">edit</i></span></a>
-            <p class="sideNav_userName">John Doe</p>
+			<a href="#!user" class="sideNav_userPic"><img class="circle" src="{{user.profile_picture}}"><span class="blue profile_edit_btn"><i class="material-icons">edit</i></span></a>
+            <p class="sideNav_userName">{{user.first_name}} {{user.last_name}}</p>
               <p class="no-marg">Kolkata</p>
-              <p class="pad_lr_2">Him rendered may attended concerns jennings reserved now. Sympathize did now preference unpleasing mrs few.</p>
+              <p class="pad_lr_2">Awesome user</p>
 		</div>
 	</li>
 	<li class="white-text" ng-class="getClass('/posts')">
