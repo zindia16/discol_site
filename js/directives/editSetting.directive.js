@@ -1,74 +1,57 @@
 angular.module('landing').directive('editSetting',[
-  'urls',
-  function(urls){
-    return {
-      restrict : 'E',
-      templateUrl : urls.root+'js/directives/templates/editSetting.html',
-      scope : {},
-      controller : [
-        '$scope','$timeout','UserService','$localStorage','UserService',
-        function($scope,$timeout,UserService,$localStorage,UserService){
-          if($localStorage.user.id){
-              var userId = $localStorage.user.id;
-              $scope.isEditMode = false;
-                
-                $scope.imageReady = false;
-                $scope.myImage='';
-                $scope.myCroppedImage='';
+	'urls',
+	function(urls){
+		return {
+			restrict : 'E',
+			templateUrl : urls.root+'js/directives/templates/editSetting.html',
+			scope : {},
+			controller : [
+				'$scope','$timeout','$localStorage','UserService','Upload',
+				function($scope,$timeout,$localStorage,UserService,Upload){
+					$scope.isBusy = false;
+					var setDefaultCoverPic = function(){
+						if(!$scope.user.cover_image){
+							$scope.user.cover_image = "../images/background3.jpg";
+						}
+						console.log($scope.user);
+					};
 
-                var handleFileSelect=function(evt) {
-                  $scope.imageReady = true;
-                  var file=evt.currentTarget.files[0];
-                  $scope.inputFile = file;
-                  var reader = new FileReader();
-                  reader.onload = function (evt) {
-                    $scope.$apply(function($scope){
-                      $scope.myImage=evt.target.result;
-                      //console.log($scope.inputFile);
-                    });
-                  };
-                  reader.readAsDataURL(file);
-                };
-                angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
-  
-              
-              $scope.updateProfile = function(dataURI,file,user){
-                    var file_ext = '';
-                    var fileNme = file.name;
-                        file_ext= fileNme.split('.').pop();
-                    var imageBase64 = dataURI;
-                    var blob = new Blob([imageBase64], {type: file.type});
-                    var fileDetails = new File([blob], file.lastModified+'.'+file_ext);
-                    
-                    var data = {user:user,profilePic:fileDetails};
-                    console.log(imageBase64);
-                    console.log(fileDetails);
-                    console.log(data);
-                    UserService.updateUserProfile(data,function(res){
-                        console.log(res);
-                    },function(err){
+					if(!$scope.user){
+						if(UserService.authUser()){
+							$scope.user=UserService.authUser();
+							setDefaultCoverPic();
+							console.log($scope.user);
+						}else{
+							UserService.getAuthUser(function(res){
+								$scope.user=res.user;
+								setDefaultCoverPic();
+								console.log($scope.user);
+							},function(err){
+								console.log(err);
+							});
+						}
+					}
+					console.log(urls);
 
-                    });
-                    
-                    
-              };
-              
-              $scope.showEditMode= function(){
-                  $scope.isEditMode = !$scope.isEditMode;
-              };
-              UserService.getUser(userId,function(res){
-                  if(res.success){
-                      $scope.user = res.user;
-                      $scope.user.modified = moment.utc(res.user.modified).fromNow();
-                  }
-              },function(err){
-                  
-              });
-              
-          }
-          
-        }
-      ]
-    };
-  }
+					$scope.updateProfile = function (file,user) {
+						$scope.isBusy = true;
+						var file_ext = file.substring("data:image/".length, file.indexOf(";base64"));
+				        Upload.upload({
+				            url: urls.api+'Users/updateProfile.json',
+				            data: {file: file, 'user': user,file_ext:file_ext}
+				        }).then(function (resp) {
+							$scope.isBusy = false;
+							$scope.user.profile_picture_link = "../images/background3.jpg";
+				            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+				        }, function (resp) {
+				            console.log('Error status: ' + resp.status);
+				        }, function (evt) {
+				            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+				            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+				        });
+				    };
+				}
+			]
+		};
+	}
 ]);

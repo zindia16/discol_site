@@ -47,6 +47,8 @@ p {
 .pad_tb_10{padding: 10% 0;}
 .no-bordered{border:0px;}
 .pad_lr_2{padding-left: 2em; padding-right: 2em;}
+.heading{text-transform: uppercase; color:#4db6ac; font-size: 14px; font-weight:bold;}
+.cust_chip{background: #f3f5fa; border:1px solid #ebf1fd;}
 /*===== nav css ======*/
 nav ul a,
 nav .brand-logo {

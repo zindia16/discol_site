@@ -7,7 +7,9 @@ angular.module('landing',[
 	'videosharing-embed',
 	'ngEmbed',
 	'angularTrix',
-        'ngImgCrop'
+	'ngFileUpload',
+    'ngImgCrop',
+	'uiCropper'
 ]);
 
 angular.module('landing').constant('urls',{
@@ -74,6 +76,7 @@ angular.module('landing').constant('embed',{
 angular.module('landing').run([
 	'$location','$localStorage','$http','urls',
 	function($location,$localStorage,$http,urls){
+		var moment = moment;
 		if($localStorage.token){
 			$http.defaults.headers.common.Authorization = 'Basic ' + $localStorage.token;
 		}else{
@@ -90,7 +93,7 @@ angular.module('landing').run([
 angular.module('landing').controller('Main',[
 	'$scope','$rootScope','$location','$localStorage','urls',
 	function($scope,$rootScope,$location,$localStorage,urls){
-		console.log(urls);
+		//console.log(urls);
 		$scope.getClass = function (path) {
 		  	return ($location.path().substr(0, path.length) === path) ? 'active' : '';
 		};

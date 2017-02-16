@@ -22,14 +22,14 @@ angular.module('landing').factory('UserService',[
 				error(err);
 			});
 		};
-                var updateUserProfile = function(data,success,error){
-                    $http.post(urls.api+'Users/updateProfile.json',data)
-                    .then(function(res){
-                        success(res.data);
-                    }).catch(function(err){
-                        error(err);
-                    });
-                };
+		var updateUserProfile = function(data,success,error){
+			$http.post(urls.api+'Users/updateProfile.json',data)
+			.then(function(res){
+				success(res.data);
+			}).catch(function(err){
+				error(err);
+			});
+		};
 		return {
 			authUser:function(){
 				if(authUser){
@@ -39,7 +39,7 @@ angular.module('landing').factory('UserService',[
 			},
 			getAuthUser:getAuthUser,
 			getUser:getUser,
-                        updateUserProfile:updateUserProfile
+			updateUserProfile:updateUserProfile
 		};
 	}
 ]);

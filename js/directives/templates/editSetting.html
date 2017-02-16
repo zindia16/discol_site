@@ -1,101 +1,96 @@
- <style>
-    .cropArea {
-      background: #E4E4E4;
-      overflow: hidden;
-      width:500px;
-      height:350px;
-    }
-  </style>
-<div class="row"> 
-  <div class="col s12 m12">
-    <div class="card">
-      <div class="card-image">
-          <img src="../images/img9.jpg" ng-if="!imageReady" class="img-circle">
-        
-          <div ng-show="isEditMode">Select an image file: <input type="file" id="fileInput" /></div>        
-        <div class="cropArea" ng-if="imageReady">
-          <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
-        </div>
-        
-<!--  <div>Cropped Image:</div>
-  <div></div>-->
-          
-          
-  
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons" ng-click="showEditMode()">edit</i></a>
-      </div>
-        <div class="card-content" ng-show="isEditMode">
-            <h5>Edit Profile</h5>
-            <ul class="collection">                
-              <li class="collection-item avatar">
-                <img src="../images/peep01.jpg" alt="" class="circle">
-                <span class="title">{{user.first_name}} {{user.last_name}}</span>
-                <a href="javascript:void(0)" class="secondary-content"></a>
-              </li>
+<style>
+.cropArea {
+	background: #E4E4E4;
+	overflow: hidden;
+	width:100%;
+	height:240px;
+	margin: 0px auto;
+}
 
-              <li class="collection-item">
-                <label for="first_name">First Name</label>
-                <input placeholder="Placeholder" id="first_name" type="text" class="validate" ng-model="user.first_name">                    
-              </li>
+</style>
+<div class="row">
+	<div class="col s12 m12">
+		<div class="card">
+			<div class="card-image">
+				<div ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
+					<!-- <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''"></img-crop> -->
+					<img ng-src="{{user.cover_image}}"  ng-show="user.cover_image && !picFile"/>
+					<ui-cropper
+						image="picFile  | ngfDataUrl"
+						area-type="rectangle"
+						aspect-ratio="3.15"
+						result-image="croppedDataUrl"
+						result-image-size="{w:815,h:260}"
+						init-max-area="true"
+						ng-init="croppedDataUrl=''"
+						ng-hide="user.cover_image && !picFile">
+					</ui-cropper>
+				</div>
+				<button ngf-select ng-model="picFile" accept="image/*" class="btn blue" style="width:200px">Change Cover Picture</button>
 
-              <li class="collection-item">
-                <label for="first_name">Last Name</label>
-                <input placeholder="Placeholder" id="first_name" type="text" class="validate" ng-model="user.last_name">
-              </li>
-              
-              <li class="collection-item">
-                <label for="first_name">Email</label>
-                <input placeholder="Placeholder" id="first_name" type="text" class="validate" ng-model="user.email">
-              </li>
+			</div>
 
-              <li class="collection-item">
-                <label for="old_password">Old Password</label>
-                <input placeholder="Placeholder" id="old_password" name="old_password" type="text" class="validate" ng-model="user.old_password">
-              </li>
-              <li class="collection-item">
-                <label for="old_password">New Password</label>
-                <input placeholder="Placeholder" id="old_password" name="old_password" type="text" class="validate" ng-model="user.new_password">
-              </li>
-              <li class="collection-item">
-                <label for="old_password">Confirm Password</label>
-                <input placeholder="Placeholder" id="old_password" name="old_password" type="text" class="validate" ng-model="user.conf_password">
-              </li>
-            </ul>
-         
-      </div>
-        
-        <div class="card-content" ng-show="!isEditMode">
-        <ul class="collection">
-            
-          <li class="collection-item avatar">
-            <img src="../images/peep01.jpg" alt="" class="circle">
-            <span class="title">{{user.first_name}} {{user.last_name}}</span>
-            <a href="javascript:void(0)" class="secondary-content"></a>
-          </li>
-          
-          <li class="collection-item">
-            First Name: {{user.first_name}} {{user.last_name}}
-            <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
-          </li>
-          
-          <li class="collection-item">
-            Email: {{user.email}}
-            <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
-          </li>
-          
-          <li class="collection-item">
-            Password: Password last changed {{user.modified}}
-            <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
-          </li>
-          
-        </ul>
-         
-      </div>
-        
-      <div class="card-action" style="text-align:right" ng-show="isEditMode">
-          <button class="btn blue" ng-click="updateProfile(myCroppedImage,inputFile,user)"><i class="material-icons left" >save</i>Save Changes</button>
-      </div>
-        
-    </div>
-  </div>
+			<div class="card-content">
+				<ul class="collection">
+					<li class="collection-item">
+						<div class="row">
+							<div class="col m3">
+							</div>
+							<div class="col m6 center">
+								<img src="../images/peep01.jpg" alt="">
+								<button class="btn blue" style="width:200px">Change Profile Picture</button>
+							</div>
+						</div>
+					</li>
+					<li class="collection-item">
+						Name: {{user.first_name}} {{user.last_name}}
+						<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
+					</li>
+
+					<li class="collection-item">
+						Email: {{user.email}}
+						<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
+					</li>
+
+					<li class="collection-item">
+						<span ng-show="!changingPassword">
+							Password: ********
+						</span>
+						<div class="card" ng-show="changingPassword">
+							<form>
+								<div class="col s12">
+									<label for="oldPassword">Old Password</label>
+									<input type="password" name="oldPassword" id="oldPassword">
+								</div>
+								<div class="col s12">
+									<label for="newPassword">New Password</label>
+									<input type="password" name="newPassword" id="newPassword">
+								</div>
+								<div class="col s12">
+									<label for="confPassword">Confirm New Password</label>
+									<input type="password" name="confPassword" id="confPassword">
+								</div>
+								<div class="col s12">
+									<button type="button" class="btn red" ng-click="changingPassword=false">Cancle</button>
+									<button type="button" class="btn blue" >Change Password</button>
+								</div>
+								<div class="clearfix"></div>
+							</form>
+						</div>
+						<a href="javascript:void(0)" ng-show="!changingPassword" class="secondary-content" ng-click="changingPassword=true"><i class="material-icons">edit</i></a>
+					</li>
+
+				</ul>
+
+			</div>
+
+			<div class="card-action" style="text-align:right">
+				<button class="btn blue" ng-click="updateProfile(croppedDataUrl,user)" ng-disabled="isBusy">
+					<i class="material-icons left" >save</i>Save Changes
+					<i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
+				</button>
+			</div>
+
+		</div>
+	</div>
 </div>
