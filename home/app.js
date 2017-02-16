@@ -6,7 +6,8 @@ angular.module('landing',[
 	'oc.lazyLoad',
 	'videosharing-embed',
 	'ngEmbed',
-	'angularTrix'
+	'angularTrix',
+        'ngImgCrop'
 ]);
 
 angular.module('landing').constant('urls',{

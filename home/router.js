@@ -30,8 +30,10 @@ angular.module('landing').config([
 					return $ocLazyLoad.load({
 						name:'homeDep',
 						files:[
+							urls.root+'bower_components/moment/min/moment.min.js',
 							urls.root+'js/controllers/dashboard.controller.js',
 							urls.root+'js/directives/editSetting.directive.js'
+							
 						]
 					});
 				}]
