@@ -11,16 +11,23 @@
 			</a>
 		</p>
 
-		<span class="card-title"><a ng-href="#!/posts/{{content.id}}" class="white-text truncate">{{content.content_type}}</a><i class="material-icons activator white-text">more_vert</i></span>
+		<span class="card-title"><a ng-href="#!/posts/{{content.id}}" class="white-text truncate">{{content.content_type}}</a>
+			<a ng-href="#!/posts/{{content.id}}"><i class="material-icons activator white-text">visibility</i><a>
+		</span>
 		<p class="userName">
-			{{content.user.first_name}} {{content.user.last_name}} |
+			<a href="#!/people/{{content.user.id}}" class="white-text">{{content.user.first_name}} {{content.user.last_name}}</a> |
 			{{content.created | date}}
 		</p>
-		<p class="white-text truncate activator">
+		<p class="white-text truncate">
 			{{content.text}}
 		</p>
+
 		<!-- <pre>{{content | json}}</pre> -->
 	</div>
+	<!-- <div class="card-reveal">
+		<span class="card-title grey-text text-darken-4">{{content.user.first_name}} {{content.user.last_name}}<i class="material-icons right">close</i></span>
+		<p>{{content.text}}</p>
+	</div> -->
 	<div class="card-action clearfix" ng-class="getContentBg(content.content_type)">
 		<div class="chip ">
 			<i class="material-icons white-text">thumb_up</i>{{content.like_count}}
@@ -28,12 +35,47 @@
 		<div class="chip">
 			<i class="material-icons white-text">share</i>{{content.share_count}}
 		</div>
-		<div class="chip">
-			<i class="material-icons white-text">message</i>{{content.comment_count}}
-		</div>
+
+		<a href="javascript:void(0)">
+			<div class="chip">
+			<i class="material-icons white-text" ng-click="loadComments(content)">message</i>{{content.comment_count}}
+			</div>
+		</a>
+
 	</div>
-	<div class="card-reveal">
-		<span class="card-title grey-text text-darken-4">{{content.user.first_name}} {{content.user.last_name}}<i class="material-icons right">close</i></span>
-		<p>{{content.text}}</p>
+
+	<div ng-show="content.showComments">
+		<ul class="collection no-bordered">
+			<li class="collection-item avatar">
+				<img ng-src="{{user.profile_picture}}" alt="" class="circle">
+				<span class="title userInfo teal-text">
+					{{user.first_name}} {{user.last_name}} | <span>{{currentTime | date: 'medium' }}</span>
+				</span>
+				<div class="input-field">
+					<textarea id="icon_prefix" ng-model="content.newComment" class="validate materialize-textarea no-pad"></textarea>
+					<label for="icon_prefix">
+						Your Comment
+					</label>
+				</div>
+				<div class="" style="text-align:right">
+					<button class="btn small blue" ng-disabled="!content.newComment || content.newComment.length < 25 || content.savingComment" ng-click="saveComment(content)">
+						<i class="material-icons" ng-hide="content.savingComment">send</i>
+						<span ng-show="content.savingComment">Saving...</span>
+					</button>
+				</div>
+			</li>
+			<li class="collection-item avatar" ng-repeat="comment in content.comments">
+				<img ng-src="{{comment.user.profile_picture}}" ng-init="comment.user.profile_picture=comment.user.profile_picture || '../images/user.png'" alt="" class="circle">
+				<span class="title userInfo teal-text">
+					{{comment.user.first_name}} {{comment.user.last_name}} | <span>{{comment.created | date}}</span>
+				</span>
+				<ng-embed
+					embed-data="comment.text"
+					embed-options="options"
+				></ng-embed>
+				<a href="#!" class="secondary-content blue-text"><i class="material-icons">thumb_up</i></a>
+			</li>
+		</ul>
+		<loader ng-show="content.loadingComments"></loader>
 	</div>
 </div>

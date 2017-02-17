@@ -1,0 +1,28 @@
+<div class="pad_tb_3 dashboardSec">
+	<div class="row">
+		<loader ng-show="!user"></loader>
+	</div>
+	<div class="row">
+		<div class="card">
+			<div>
+				<img src="{{user.cover_image}}" class="responsive-img">
+
+			</div>
+			<div class="card-content">
+				<div class="row valign-wrapper">
+					<div class="col s2">
+						<img src="{{user.profile_picture}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+					</div>
+					<div class="col s10">
+						<span class="card-title black-text">
+							{{user.first_name}} {{user.last_name}}
+						</span>
+						<span class="black-text">
+							<strong>Member Since :</strong>  {{user.created | date}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

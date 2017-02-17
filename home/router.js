@@ -15,6 +15,7 @@ angular.module('landing').config([
 						files:[
 							urls.root+'js/directives/contentCard.js',
 							urls.root+'js/services/content.service.js',
+							urls.root+'js/services/comment.service.js',
 							urls.root+'js/controllers/content.controller.js',
 							urls.root+'js/directives/dummyContentMain.directive.js',
 						]
@@ -84,6 +85,26 @@ angular.module('landing').config([
 							urls.root+'js/services/content.service.js',
 							urls.root+'js/services/user.service.js',
 							urls.root+'js/controllers/post.controller.js'
+						]
+					});
+				}]
+			}
+		})
+		.when('/people/:userId',{
+			templateUrl:"views/people/index.html",
+			//controller:'People',
+			resolve:{
+				dep:['$ocLazyLoad',function($ocLazyLoad){
+					return $ocLazyLoad.load({
+						name:'homeDep',
+						files:[
+							urls.root+'js/directives/newPostCard.js',
+							urls.root+'js/directives/userInfo.js',
+							urls.root+'js/services/content.service.js',
+							urls.root+'js/services/user.service.js',
+							urls.root+'js/controllers/post.controller.js',
+							urls.root+'js/directives/dummyContentPosts.directive.js',
+							urls.root+'js/directives/userProfileHeader.directive.js',
 						]
 					});
 				}]
