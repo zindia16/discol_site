@@ -14,9 +14,9 @@ font-weight: 400;
 }
 /* Change Autocomplete styles in Chrome*/
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus
-input:-webkit-autofill, 
+input:-webkit-autofill,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover
 textarea:-webkit-autofill:focus,
@@ -61,7 +61,8 @@ nav .brand-logo {
 /*== button css==*/
 .ylw_btn{background:#f4c215; color: #000; box-shadow: none; height:44px; line-height: 44px;}
 .ylw_btn:hover, .ylw_btn:focus {background:#f4dc15; box-shadow: none;}
-
+.rounded_corner_btn{border-radius: 30px; -moz-border-radius: 30px; -webkit-border-radius: 30px;}
+.no-box-shadow{box-shadow: none;}
 /*===== discol css ======*/
 .mainViewArea{margin-left:280px;}
 /*.rightPart{position: fixed; width:42%; right:0; top:50px; overflow-x: hidden; overflow-y: scroll; height:100%;}*/
@@ -78,15 +79,18 @@ nav.dscl_inner_nav, nav.dscl_inner_nav .nav-wrapper i{box-shadow:none;  height:5
 .userView{position: relative;}
 .side-nav.inner-sidenav{padding-top: 42px; background: #fff; color: #333;}
 .side-nav.inner-sidenav li + li{margin: 0 10px;}
-.side-nav li a:hover, .inner-sideNav li a:hover, .side-nav.inner-sideNav li a:focus, .inner-sideNav li a:focus, .side-nav li a.active, .inner-sideNav li a.active{color:#039be5;} 
+.side-nav li a:hover, .inner-sideNav li a:hover, .side-nav.inner-sideNav li a:focus, .inner-sideNav li a:focus, .side-nav li a.active, .inner-sideNav li a.active{color:#039be5;}
 .side-nav.inner-sidenav .userView .background{position: relative;}
 .side-nav.inner-sideNav .svgImg{width:100%; position: absolute; bottom:10px; margin: 0; z-index: 2}
 /*.side-nav.inner-sidenav .user-info{width:100%; position: absolute; top: 28px; left: 0;}*/
 .sideNav_userPic{padding:3em 0 0 0 !important; position: absolute; top:0px; left:50%; margin-left: -50px;}
-.sideNav_userPic img{margin:0 auto; width:100px !important; height: 100px !important;}
+.sideNav_userPic img, .userpic_holder img{margin:0 auto; width:100px !important; height: 100px !important;}
 .sideNav_userName{ font-weight: bold; font-size: 20px; margin:0;}
-.profile_edit_btn{width:30px; height: 30px; position: absolute; bottom: 10px; right: 0; color: #fff; display: flex; align-items: center; border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px;}
+.profile_edit_btn{width:30px; height: 30px; position: absolute; bottom: 10px; right: 0; color: #fff; display: flex; align-items: center; border-radius: 50px; -moz-border-radius: 50px; -webkit-border-radius: 50px; border:0px;}
 .profile_edit_btn i{margin-left: 5px; font-size: 20px;}
+.card .card-image img.userpic_circle{border-radius: 50px !important; -moz-border-radius: 50px; -webkit-border-radius: 50px;}
+.userpic_holder{position: absolute; left:10px; bottom:10px; z-index: 999;}
+.coverImg_edit_btn{bottom:10px; right:10px;}
 .svgImg {
     width: 100%;
     position: absolute;

@@ -10,7 +10,7 @@
 </style>
 <div class="row">
 	<div class="col s12 m12">
-		<div class="card">
+		<div class="card cust-card">
 			<div class="card-image">
 				<div ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
 					<!-- <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''"></img-crop> -->
@@ -26,8 +26,8 @@
 						ng-hide="user.cover_image && !picFile">
 					</ui-cropper>
 				</div>
-				<button ngf-select ng-model="picFile" accept="image/*" class="btn blue" style="width:200px">Change Cover Picture</button>
-
+				<button ngf-select ng-model="picFile" accept="image/*" class="white profile_edit_btn coverImg_edit_btn"><i class="material-icons grey-text text-darken-4" style="margin-left:0px;">edit</i></button>
+				<a href="#!user" class="userpic_holder"><img class="circle userpic_circle" src="../images/peep01.jpg"></a>
 			</div>
 
 			<div class="card-content">
@@ -41,23 +41,23 @@
 								<ui-cropper image="profilePic" area-type="circle" chargement="'Loading'" result-image="croppedProfilePic"
 								canvas-scalemode="true">
 								</ui-cropper>
-								<button ngf-select ng-model="profilePic" accept="image/*" class="btn blue" style="width:200px">Change Profile Picture</button>
+								<button ngf-select ng-model="profilePic" accept="image/*" class="btn blue rounded_corner_btn no-box-shadow">Change Profile Picture</button>
 							</div>
 						</div>
 					</li>
 					<li class="collection-item">
-						Name: {{user.first_name}} {{user.last_name}}
+						<b>Name:</b> {{user.first_name}} {{user.last_name}}
 						<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
 					</li>
 
 					<li class="collection-item">
-						Email: {{user.email}}
+						<b>Email:</b> {{user.email}}
 						<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
 					</li>
 
 					<li class="collection-item">
 						<span ng-show="!changingPassword">
-							Password: ********
+							<b>Password:</b> ********
 						</span>
 						<div class="card" ng-show="changingPassword">
 							<form>
@@ -74,8 +74,8 @@
 									<input type="password" name="confPassword" id="confPassword">
 								</div>
 								<div class="col s12">
-									<button type="button" class="btn red" ng-click="changingPassword=false">Cancle</button>
-									<button type="button" class="btn blue" >Change Password</button>
+									<button type="button" class="btn red rounded_corner_btn no-box-shadow" ng-click="changingPassword=false">Cancle</button>
+									<button type="button" class="btn blue rounded_corner_btn no-box-shadow">Change Password</button>
 								</div>
 								<div class="clearfix"></div>
 							</form>

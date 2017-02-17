@@ -19,19 +19,18 @@ angular.module('landing').directive('userProfileHeader',function(urls){
 					console.log($scope.user);
 				};
 				//this function below needs to be changed for user as per routeParams
-				if(!$scope.user){
-					if(UserService.authUser()){
-						$scope.user=UserService.authUser();
+				$scope.getUser = function(userId){
+					UserService.getUser(userId,function(res){
+						$scope.user = res.user;
 						setDefaultCoverPic();
-					}else{
-						UserService.getAuthUser(function(res){
-							$scope.user=res.user;
-							setDefaultCoverPic();
-						},function(err){
-							console.log(err);
-						});
-					}
+					},function(err){
+						$scope.user = res;
+					});
+				};
+				if($routeParams.userId){
+					$scope.getUser($routeParams.userId);
 				}
+
 			}
 		]
 	};
