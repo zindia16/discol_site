@@ -1,12 +1,11 @@
-<div class="">
-	<div class="row">
-		<loader ng-show="!user"></loader>
+<div class="pad_tb_3 dashboardSec">
+	<div class="row" ng-show="!user">
+		<loader loader-text="loaderText"></loader>
 	</div>
-	<div class="row">
+	<div class="row" ng-show="user">
 		<div class="card">
 			<div>
 				<img src="{{user.cover_image}}" class="responsive-img">
-
 			</div>
 			<div class="card-content">
 				<div class="row valign-wrapper">
@@ -24,5 +23,11 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="row" ng-show="!posts">
+		<loader loader-text="postLoadingText" ng-init="postLoadingText='Loading posts...'"></loader>
+	</div>
+	<div class="row" ng-if="posts.length > 0" ng-repeat="content in posts">
+		<content-card data-content="content"></content-card>
 	</div>
 </div>

@@ -6,9 +6,10 @@ angular.module('landing').directive('userProfileHeader',function(urls){
 			//user: '=user'
 		},
 		controller:[
-			'$scope','$sce','$timeout','$routeParams','UserService',
-			function($scope,$sce,$timeout,$routeParams,UserService){
+			'$scope','$sce','$timeout','$routeParams','UserService','ContentService',
+			function($scope,$sce,$timeout,$routeParams,UserService,ContentService){
 				$scope.user = $scope.user || null;
+				$scope.loaderText = "Loading user...";
 				var setDefaultCoverPic = function(){
 					if(!$scope.user.cover_image){
 						$scope.user.cover_image = "../images/background3.jpg";
@@ -27,8 +28,16 @@ angular.module('landing').directive('userProfileHeader',function(urls){
 						$scope.user = res;
 					});
 				};
+				$scope.getUserPosts = function(userId){
+					ContentService.getUserPosts(userId,function(res){
+						$scope.posts = res.contents;
+					},function(err){
+						console.log(err)
+					});
+				};
 				if($routeParams.userId){
 					$scope.getUser($routeParams.userId);
+					$scope.getUserPosts($routeParams.userId);
 				}
 
 			}

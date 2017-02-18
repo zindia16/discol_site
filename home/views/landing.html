@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col m6 s12">
 			<div class="row" ng-show="!contentLoaded">
-				<loader></loader>
+				<loader loader-text="contentLoading"></loader>
 			</div>
 			<div class="col m12 s12" ng-repeat="content in contents">
 				<content-card data-content="content"></content-card>

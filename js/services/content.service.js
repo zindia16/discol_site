@@ -11,6 +11,7 @@ angular.module('landing').factory('ContentService',[
 				error(err);
 			});
 		};
+
 		var getPosts=function(success,error){
 			$http.get(urls.api+'Contents/index/post.json')
 			.then(function(res){
@@ -30,6 +31,16 @@ angular.module('landing').factory('ContentService',[
 			});
 		};
 
+		var getUserPosts = function(userId,success,error){
+			$http.get(urls.api+'Contents/index/post.json?userId='+userId)
+			.then(function(res){
+				success(res.data)
+			})
+			.catch(function(err){
+				error(err);
+			})
+		};
+
 		var savePost = function(data,success,error){
 			$http.post(urls.api+'Contents/add.json',data)
 			.then(function(res){
@@ -43,7 +54,8 @@ angular.module('landing').factory('ContentService',[
 			getContents:getContents,
 			getPosts:getPosts,
 			getPost:getPost,
-			savePost:savePost
+			savePost:savePost,
+			getUserPosts:getUserPosts
 		};
 	}
 ]);
