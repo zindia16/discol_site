@@ -148,6 +148,7 @@ background-size:cover;}
 .innerNav_shortBtn{position: absolute; top: 15px; left:15px; z-index: 9999;}
 .rigtPart_btn{position: absolute; top: 15px; right:65px; z-index: 9999;}
 .fixed-action-btn.cust-fixed-action-btn ul li{height:45px; margin-bottom: 10px;}
+.cust-card{margin:0.5rem 0 2.5rem 0;}
 .cust-card .card-action{padding: 10px;}
 .cust-card .card-reveal{word-wrap: break-word;}
 .userInfo{font-size: 13px !important;}
