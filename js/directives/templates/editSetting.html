@@ -60,25 +60,43 @@
 							<b>Password:</b> ********
 						</span>
 						<div class="card" ng-show="changingPassword">
-							<form>
+							<form ng-submit="changePassword()" name="userForm" novalidate ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+<!--                                                            <span ng-class="(pwdchanged)?'blue-text':'red-text' alert alert-danger">{{successMsg}}aaaaaaaaaa</span>-->
+                                                             
+                                                            <div class="collection" ng-show="isRes">
+                                                                <span class="collection-item blue-text" ng-show="pwdchanged">{{successMsg}}</span>
+                                                                <span class="collection-item red-text" ng-show="!pwdchanged">{{successMsg}}</span>
+                                                            </div>
+        
 								<div class="col s12">
 									<label for="oldPassword">Old Password</label>
-									<input type="password" name="oldPassword" id="oldPassword">
+                                                                        <input type="password" required name="oldPassword" ng-model="password.oldPassword" id="oldPassword">
+                                                                        <span class="red-text" ng-show="!userForm.oldPassword.$pristine && userForm.oldPassword.$invalid">The name is required.</span>
+                                                                        
 								</div>
 								<div class="col s12">
 									<label for="newPassword">New Password</label>
-									<input type="password" name="newPassword" id="newPassword">
+                                                                        <input type="password" required name="newPassword" ng-model="password.newPassword" id="newPassword" >
+                                                                        <span class="red-text" ng-show="!userForm.newPassword.$pristine && userForm.newPassword.$invalid">The name is required.</span>
+                                                                        
 								</div>
 								<div class="col s12">
 									<label for="confPassword">Confirm New Password</label>
-									<input type="password" name="confPassword" id="confPassword">
+                                                                        <input type="password" name="confPassword" ng-model="password.confPassword" required id="confPassword">
+                                                                        <span class="red-text" ng-show="!userForm.confPassword.$pristine && userForm.confPassword.$invalid">The name is required.</span>
+                                                                        <span class="red-text" ng-show="password.newPassword !== password.confPassword">Password mismatch</span>
+                                                                        <span class="blue-text" ng-show="!userForm.confPassword.$pristine && (password.newPassword === password.confPassword)">Password match</span>
 								</div>
 								<div class="col s12">
 									<button type="button" class="btn red rounded_corner_btn no-box-shadow" ng-click="changingPassword=false">Cancle</button>
-									<button type="button" class="btn blue rounded_corner_btn no-box-shadow">Change Password</button>
+                                                                        <button ng-disabled="!userForm.$valid ||isBusy" type="submit" class="btn blue rounded_corner_btn no-box-shadow">Change Password
+                                                                            <i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
+                                                                        </button>
 								</div>
 								<div class="clearfix"></div>
+                                                                
 							</form>
+                                                        
 						</div>
 						<a href="javascript:void(0)" ng-show="!changingPassword" class="secondary-content" ng-click="changingPassword=true"><i class="material-icons">edit</i></a>
 					</li>

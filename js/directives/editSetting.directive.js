@@ -34,7 +34,25 @@ angular.module('landing').directive('editSetting',[
 							});
 						}
 					}
-					console.log(urls);
+					$scope.changePassword = function () {
+                        var password = $scope.password;
+                        $scope.isBusy = true;
+                        $scope.isRes = false;
+                        UserService.changePassword(password,function (res) {
+                            $scope.isBusy = false;
+                            $scope.isRes = true;
+                            if(res.success){                                
+                                $scope.pwdchanged = true;
+                                $scope.successMsg = "Your old password change successfully.";
+                            }else{
+                                $scope.pwdchanged = false;
+                                $scope.isBusy = false;
+                                $scope.successMsg = "Your old password did not match";
+                            }
+                        }, function (err) {
+                            $scope.isBusy = false;
+                        });
+                    };
 
 					$scope.updateProfile = function (file,ProfilePic) {
 						$scope.isBusy = true;
