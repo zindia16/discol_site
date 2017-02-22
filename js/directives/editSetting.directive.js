@@ -9,6 +9,7 @@ angular.module('landing').directive('editSetting',[
 				'$scope','$timeout','$localStorage','UserService','Upload',
 				function($scope,$timeout,$localStorage,UserService,Upload){
 					$scope.isBusy = false;
+					$scope.loadingTemplate = urls.root+'js/directives/templates/multicolorLoader.html';
 					var setDefaultCoverPic = function(){
 						if(!$scope.user.cover_image){
 							$scope.user.cover_image = "../images/background3.jpg";
@@ -34,25 +35,42 @@ angular.module('landing').directive('editSetting',[
 							});
 						}
 					}
+					$scope.updateUserName = function(){
+						var username = $scope.user;
+						$scope.isBusy = true;
+						$scope.isRes = false;
+						UserService.updateName(username,function (res) {
+								$scope.isBusy = false;
+								$scope.isNameRes = true;
+								if(res.success){
+										$scope.namechanged = true;
+										$scope.successMsg = res.message;
+								}else{
+										$scope.namechanged = false;
+										$scope.successMsg = res.message;
+								}
+						}, function (err) {
+								$scope.isBusy = false;
+						});
+					};
 					$scope.changePassword = function () {
-                        var password = $scope.password;
-                        $scope.isBusy = true;
-                        $scope.isRes = false;
-                        UserService.changePassword(password,function (res) {
-                            $scope.isBusy = false;
-                            $scope.isRes = true;
-                            if(res.success){                                
-                                $scope.pwdchanged = true;
-                                $scope.successMsg = "Your old password change successfully.";
-                            }else{
-                                $scope.pwdchanged = false;
-                                $scope.isBusy = false;
-                                $scope.successMsg = "Your old password did not match";
-                            }
-                        }, function (err) {
-                            $scope.isBusy = false;
-                        });
-                    };
+                var password = $scope.password;
+                $scope.isBusy = true;
+                $scope.isRes = false;
+                UserService.changePassword(password,function (res) {
+                    $scope.isBusy = false;
+                    $scope.isRes = true;
+                    if(res.success){
+                        $scope.pwdchanged = true;
+                        $scope.successMsg = "Your old password change successfully.";
+                    }else{
+                        $scope.pwdchanged = false;
+                        $scope.successMsg = "Your old password did not match";
+                    }
+                }, function (err) {
+                    $scope.isBusy = false;
+                });
+            };
 
 					$scope.updateProfile = function (file,ProfilePic) {
 						$scope.isBusy = true;

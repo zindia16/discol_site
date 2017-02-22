@@ -8,7 +8,8 @@
 }
 
 </style>
-<div class="row">
+<loader loader-text="profileLoading" ng-init="profileLoading='Loading your profile .... '" ng-show="!user"></loader>
+<div class="row" ng-show="user">
 	<div class="col s12 m12">
 		<div class="card cust-card">
 			<div class="card-image">
@@ -27,7 +28,8 @@
 					</ui-cropper>
 				</div>
 				<button ngf-select ng-model="picFile" accept="image/*" class="white profile_edit_btn coverImg_edit_btn"><i class="material-icons grey-text text-darken-4" style="margin-left:0px;">edit</i></button>
-				<a href="#!user" class="userpic_holder"><img class="circle userpic_circle" src="../images/peep01.jpg"></a>
+				<a href="#!user" class="userpic_holder" ng-show="!user.profile_picture"><img class="circle userpic_circle" src="../images/peep01.jpg"></a>
+				<a href="#!user" class="userpic_holder" ng-show="user.profile_picture"><img class="circle userpic_circle" src="{{user.profile_picture}}"></a>
 			</div>
 
 			<div class="card-content">
@@ -46,13 +48,43 @@
 						</div>
 					</li>
 					<li class="collection-item">
+						<span ng-show = "!changingName">
 						<b>Name:</b> {{user.first_name}} {{user.last_name}}
-						<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
+						</span>
+						<div class="card" ng-show="changingName">
+							<form ng-submit="updateUserName()" name="userFullNameForm" novalidate>
+                    <div class="collection" ng-show="isNameRes">
+                        <span class="collection-item blue-text" ng-show="namechanged">{{successMsg}}</span>
+                        <span class="collection-item red-text" ng-show="!namechanged">{{successMsg}}</span>
+                    </div>
+										<div class="col s12">
+											<label for="first_name">First Name</label>
+                      <input type="text" required name="first_name" ng-model="user.first_name" id="first_name">
+                      <span class="red-text" ng-show="!userFullNameForm.first_name.$pristine && userFullNameForm.first_name.$invalid">Please enter your first name.</span>
+
+										</div>
+										<div class="col s12">
+											<label for="newPassword">Last Name</label>
+                      <input type="text" name="last_name" ng-model="user.last_name" id="last_name" >
+										</div>
+
+										<div class="col s12">
+											<button type="button" class="btn red rounded_corner_btn no-box-shadow" ng-click="changingName=false">Cancle</button>
+                      <button ng-disabled="!userFullNameForm.$valid ||isBusy" type="submit" class="btn blue rounded_corner_btn no-box-shadow">Update
+                          <i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
+                      </button>
+										</div>
+										<div class="clearfix"></div>
+
+							</form>
+
+						</div>
+						<a href="javascript:void(0)" class="secondary-content" ng-click="changingName=true"><i class="material-icons">edit</i></a>
 					</li>
 
 					<li class="collection-item">
 						<b>Email:</b> {{user.email}}
-						<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a>
+						<!-- <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a> -->
 					</li>
 
 					<li class="collection-item">
@@ -62,41 +94,40 @@
 						<div class="card" ng-show="changingPassword">
 							<form ng-submit="changePassword()" name="userForm" novalidate ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
 <!--                                                            <span ng-class="(pwdchanged)?'blue-text':'red-text' alert alert-danger">{{successMsg}}aaaaaaaaaa</span>-->
-                                                             
-                                                            <div class="collection" ng-show="isRes">
-                                                                <span class="collection-item blue-text" ng-show="pwdchanged">{{successMsg}}</span>
-                                                                <span class="collection-item red-text" ng-show="!pwdchanged">{{successMsg}}</span>
-                                                            </div>
-        
-								<div class="col s12">
-									<label for="oldPassword">Old Password</label>
-                                                                        <input type="password" required name="oldPassword" ng-model="password.oldPassword" id="oldPassword">
-                                                                        <span class="red-text" ng-show="!userForm.oldPassword.$pristine && userForm.oldPassword.$invalid">The name is required.</span>
-                                                                        
-								</div>
-								<div class="col s12">
-									<label for="newPassword">New Password</label>
-                                                                        <input type="password" required name="newPassword" ng-model="password.newPassword" id="newPassword" >
-                                                                        <span class="red-text" ng-show="!userForm.newPassword.$pristine && userForm.newPassword.$invalid">The name is required.</span>
-                                                                        
-								</div>
-								<div class="col s12">
-									<label for="confPassword">Confirm New Password</label>
-                                                                        <input type="password" name="confPassword" ng-model="password.confPassword" required id="confPassword">
-                                                                        <span class="red-text" ng-show="!userForm.confPassword.$pristine && userForm.confPassword.$invalid">The name is required.</span>
-                                                                        <span class="red-text" ng-show="password.newPassword !== password.confPassword">Password mismatch</span>
-                                                                        <span class="blue-text" ng-show="!userForm.confPassword.$pristine && (password.newPassword === password.confPassword)">Password match</span>
-								</div>
-								<div class="col s12">
-									<button type="button" class="btn red rounded_corner_btn no-box-shadow" ng-click="changingPassword=false">Cancle</button>
-                                                                        <button ng-disabled="!userForm.$valid ||isBusy" type="submit" class="btn blue rounded_corner_btn no-box-shadow">Change Password
-                                                                            <i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
-                                                                        </button>
-								</div>
-								<div class="clearfix"></div>
-                                                                
+
+                    <div class="collection" ng-show="isRes">
+                        <span class="collection-item blue-text" ng-show="pwdchanged">{{successMsg}}</span>
+                        <span class="collection-item red-text" ng-show="!pwdchanged">{{successMsg}}</span>
+                    </div>
+										<div class="col s12">
+											<label for="oldPassword">Old Password</label>
+                      <input type="password" required name="oldPassword" ng-model="password.oldPassword" id="oldPassword">
+                      <span class="red-text" ng-show="!userForm.oldPassword.$pristine && userForm.oldPassword.$invalid">The name is required.</span>
+
+										</div>
+										<div class="col s12">
+											<label for="newPassword">New Password</label>
+                      <input type="password" required name="newPassword" ng-model="password.newPassword" id="newPassword" >
+                      <span class="red-text" ng-show="!userForm.newPassword.$pristine && userForm.newPassword.$invalid">The name is required.</span>
+
+										</div>
+										<div class="col s12">
+											<label for="confPassword">Confirm New Password</label>
+                      <input type="password" name="confPassword" ng-model="password.confPassword" required id="confPassword">
+                      <span class="red-text" ng-show="!userForm.confPassword.$pristine && userForm.confPassword.$invalid">The name is required.</span>
+                      <span class="red-text" ng-show="password.newPassword !== password.confPassword">Password mismatch</span>
+                      <span class="blue-text" ng-show="!userForm.confPassword.$pristine && (password.newPassword === password.confPassword)">Password match</span>
+										</div>
+										<div class="col s12">
+											<button type="button" class="btn red rounded_corner_btn no-box-shadow" ng-click="changingPassword=false">Cancle</button>
+                      <button ng-disabled="!userForm.$valid ||isBusy" type="submit" class="btn blue rounded_corner_btn no-box-shadow">Change Password
+                          <i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
+                      </button>
+										</div>
+										<div class="clearfix"></div>
+
 							</form>
-                                                        
+
 						</div>
 						<a href="javascript:void(0)" ng-show="!changingPassword" class="secondary-content" ng-click="changingPassword=true"><i class="material-icons">edit</i></a>
 					</li>
