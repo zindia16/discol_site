@@ -21,9 +21,13 @@
 		></ng-embed>
 	</div>
 	<div class="card-action clearfix" ng-class="getContentBg(content.content_type)">
-		<div class="chip ">
-			<i class="material-icons white-text">thumb_up</i>{{content.like_count}}
-		</div>
+		<a href="javascript:void(0)" ng-click="saveLike(content)" ng-class="(content.doesThisUserLikesContent)?'disabled':''">
+			<div class="chip ">
+				<i ng-hide="content.liking" class="material-icons white-text">thumb_up</i>
+				<i class="fa fa-fw fa-spin fa-spinner" ng-show="content.liking"></i>
+				{{content.like_count}}
+			</div>
+		</a>
 		<div class="chip">
 			<i class="material-icons white-text">share</i>{{content.share_count}}
 		</div>
