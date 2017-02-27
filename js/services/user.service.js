@@ -22,6 +22,22 @@ angular.module('landing').factory('UserService',[
 				error(err);
 			});
 		};
+		var changePassword = function(data,success,error){
+    	$http.post(urls.api+'Users/changePassword.json',data)
+			.then(function(res){
+						success(res.data);
+					}).catch(function(err){
+						error(err);
+			});
+    };
+		var updateName = function(data,success,error){
+    	$http.post(urls.api+'Users/updateName.json',data)
+			.then(function(res){
+						success(res.data);
+					}).catch(function(err){
+						error(err);
+			});
+    };
 		var updateUserProfile = function(data,success,error){
 			$http.post(urls.api+'Users/updateProfile.json',data)
 			.then(function(res){
@@ -39,7 +55,9 @@ angular.module('landing').factory('UserService',[
 			},
 			getAuthUser:getAuthUser,
 			getUser:getUser,
-			updateUserProfile:updateUserProfile
+			updateUserProfile:updateUserProfile,
+			changePassword:changePassword,
+			updateName:updateName
 		};
 	}
 ]);

@@ -1,14 +1,14 @@
 <div class="pad_tb_3 dashboardSec">
 	<div class="row">
-		<div class="col m6">
-			<div class="row" ng-show="!contentLoaded">
+		<div class="col m6 s12">
+			<div class="col m12 s12" ng-show="!contentLoaded">
 				<loader loader-text="lText" ng-init="lText='Loading posts...'"></loader>
 			</div>
 			<div class="col m12 s12">
 				<content-card data-content="content" ng-repeat="content in contents"></content-card>
 			</div>
 		</div>
-		<div class="col m6">
+		<div class="col m6 s12">
 			<dummy-content-posts>Not Loaded<dummy-content-posts>
 		</div>
 	</div>

@@ -1,16 +1,16 @@
 <div class="dashboardSec">
 	<div class="row">
-		<div class="col m6">
+		<div class="col m8 s12">
 			<div class="row" ng-show="!contentLoaded">
-				<loader></loader>
+				<loader loader-text="loadingPostText" ng-init="loadingPostText='Loading post...'"></loader>
 			</div>
-			<div class="col m12 s12" ng-if="contentLoaded">
+			<div class="col s12" ng-if="contentLoaded">
 				<post-card data-content="content"></post-card>
 				<comments-card ng-if="content.id" data-contentid="content.id"></comments-card>
 			</div>
 		</div>
-		<div class="col m6">
-			<dummy-content-post>Not Loaded<dummy-content-post>
+		<div class="col m4 s12">
+			<dummy-content-post></dummy-content-post>
 		</div>
 	</div>
 </div>

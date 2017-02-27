@@ -1,0 +1,50 @@
+<div class="card sticky-action" ng-class="getContentBg(content.content_type)">
+	<div class="card-image waves-effect waves-block waves-light">
+		<span class="category_icon valign-wrapper" ng-bind-html="getContentIcon(content.content_type)"></span>
+		<img ng-hide="content.video_link" class="activator responsive-img" alt="No Image" ng-src="{{content.header_image_link}}" ng-init="content.header_image_link = content.header_image_link ||  '../images/baby.jpg'">
+		<embed-video ng-show="content.video_link" width="100%" height="300px" href="{{content.video_link}}"></embed-video>
+	</div>
+	<div class="card-content">
+		<p><img  class="userPic" ng-src="{{content.user.profile_picture}}" ng-init="content.user.profile_picture = content.user.profile_picture || '../images/user.png'" alt="User"/></p>
+		<span class="card-title"><a ng-href="javascript:void(0)" class="white-text">{{content.content_type}}</a>
+			<i class="material-icons white-text" data-activates='postMoreAction' data-constrainwidth="false" dropdown data-hover="false" data-beloworigin="true" data-alignment="right">more_vert</i>
+		</span>
+		<p class="userName">
+			{{content.user.first_name}} {{content.user.last_name}} |
+			{{content.created | date}}
+		</p>
+		<form class="col s12" name="frmContent">
+			<div class="row">
+				<div class="input-field col s12 white-text">
+					<input id="video_link" name="video_link" ng-model="content.video_link" class="validate">
+					<label for="video_link" class="active white-text">Video Link [Youtube, Dailymotion, Vimeo, Youku or Vine]</label>
+				</div>
+				<div class="input-field col s12 white-text">
+					<input id="header_image_link" name="header_image_link" ng-model="content.header_image_link" class="validate">
+					<label for="header_image_link" class="active white-text">Post header image link</label>
+				</div>
+				<div class="input-field col s12 white-text">
+					<textarea name="newContent" ng-model="content.text" class="validate materialize-textarea"></textarea>
+					<label for="icon_prefix" class="white-text">Your Post</label>
+				</div>
+
+			</div>
+		</form>
+	</div>
+	<div class="card-action clearfix white">
+		<p>
+			<input type="checkbox" id="is_published" ng-model="content.is_published"/>
+			<label for="is_published">Publish?</label>
+			<button type='submit' ng-click="savePost(content)" class='btn blue right' ng-disabled="!content.text || content.text.length < 15 || savingContent"><i class="material-icons" ng-hide="savingContent">send</i><i class="fa fa-fw fa-spin fa-spinner" ng-show="savingContent"></i></button>
+
+		</p>
+	</div>
+</div>
+
+<ul id='postMoreAction' class='dropdown-content'>
+    <li><a href="javascript:void(0);"><i class="material-icons right">star</i>Make Favourite</a></li>
+    <li><a href="javascript:void(0);">Link 2</a></li>
+    <li class="divider"></li>
+    <li><a href="javascript:void(0);">Link 4</a></li>
+    <li><a href="javascript:void(0);">Link 5</a></li>
+</ul>

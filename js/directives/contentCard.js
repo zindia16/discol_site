@@ -5,7 +5,7 @@ angular.module('landing').directive('contentCard',function(urls,embed){
 		scope:{
 			content: '=content'
 		},
-		controller:function($scope,$sce,$timeout,$interval,CommentService,UserService){
+		controller:function($scope,$sce,$timeout,$interval,CommentService,UserService,LikeContentService){
 			$interval(function(){
 				$scope.currentTime = new Date();
 			},1000);
@@ -83,6 +83,26 @@ angular.module('landing').directive('contentCard',function(urls,embed){
 					Materialize.toast("Error: Sorry! your comment wasn't successful. Try again.", 4000);
 					content.savingComment=false;
 				});
+			};
+
+			$scope.saveLike = function(content){
+				content.liking = true;
+				if(content.doesThisUserLikesContent){
+					Materialize.toast('You already likes this post of '+content.user.first_name, 4000);
+					content.liking = false;
+					return false;
+				}
+				LikeContentService.saveLike(content.id,function(res){
+					content.liking = false;
+					content.like_count = content.like_count+1;
+					content.doesThisUserLikesContent = true;					
+					Materialize.toast('You have liked a post of '+content.user.first_name, 4000);
+				},function(err){
+					content.liking = false;
+					Materialize.toast("Error: Sorry! you couldn't like the post. Try again.", 4000);
+					content.savingComment=false;
+				});
+
 			};
 		}
 	};

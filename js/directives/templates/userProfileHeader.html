@@ -4,28 +4,27 @@
 	</div>
 	<div class="row" ng-show="user">
 		<div class="card">
-			<div>
-				<img src="{{user.cover_image}}" class="responsive-img">
+			<div class="profile-card-image">
+				<img src="{{user.cover_image}}" class="responsive-img" style="min-height:100px">
+				<img src="{{user.profile_picture}}" alt="" class="circle profile-image responsive-img" alt="--O--">
+			</div>
+			<div class="row valign-wrapper">
+				<div class="col s12">
+					<span class="card-title black-text">
+						{{user.first_name}} {{user.last_name}}
+					</span>
+					<span class="black-text">
+						<strong>Member Since :</strong>  {{user.created | date}}
+					</span>
+				</div>
 			</div>
 			<div class="card-content">
-				<div class="row valign-wrapper">
-					<div class="col s2">
-						<img src="{{user.profile_picture}}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-					</div>
-					<div class="col s10">
-						<span class="card-title black-text">
-							{{user.first_name}} {{user.last_name}}
-						</span>
-						<span class="black-text">
-							<strong>Member Since :</strong>  {{user.created | date}}
-						</span>
-					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>
 	<div class="row" ng-show="!posts">
-		<loader loader-text="postLoadingText" ng-init="postLoadingText='Loading posts...'"></loader>
+		<loader loader-text="postLoadingText" ng-init="postLoadingText='Loading contents...'"></loader>
 	</div>
 	<div class="row" ng-if="posts.length > 0" ng-repeat="content in posts">
 		<content-card data-content="content"></content-card>

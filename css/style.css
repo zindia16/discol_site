@@ -148,9 +148,21 @@ background-size:cover;}
 .innerNav_shortBtn{position: absolute; top: 15px; left:15px; z-index: 9999;}
 .rigtPart_btn{position: absolute; top: 15px; right:65px; z-index: 9999;}
 .fixed-action-btn.cust-fixed-action-btn ul li{height:45px; margin-bottom: 10px;}
-.cust-card{margin:0.5rem 0 2.5rem 0;}
 .cust-card .card-action{padding: 10px;}
 .cust-card .card-reveal{word-wrap: break-word;}
+.cust-card .card-image{text-align: center;}
+.cust-card .card-image img{position: static;}
+.profile-card-image{
+    position: relative;
+  }
+  .profile-card-image .profile-image{
+    width:50px;
+    height: 50px;
+    position: absolute;
+    left: 5px;
+    bottom: 11px;
+    border: 2px solid white;
+  }
 .userInfo{font-size: 13px !important;}
 .userInfo span{color:#434343;}
 .dropdown-content.shortLinks li > a{font-size: 14px !important; font-weight:normal !important; margin-top: 0px !important;}

@@ -74,6 +74,9 @@ angular.module('landing').config([
 				}]
 			}
 		})
+		.when('/blogs',{
+			templateUrl:"views/blogs/index.html",
+		})
 		.when('/people/:userId',{
 			templateUrl:"views/people/index.html",
 			//controller:'People',
