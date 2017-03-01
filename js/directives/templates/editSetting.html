@@ -34,12 +34,14 @@
 
 			<div class="card-content">
 				<div class="row">
-					<div class="col m3 s12 center">
+					<div class="col m3 s12 center" style="position: relative;">
+						<div style="position:absolute; top:-50px; width:100%;">
 						<img src="{{user.profile_picture}}" alt="" ng-show="user.profile_picture && !profilePic">
 						<ui-cropper image="profilePic" area-type="circle" chargement="'Loading'" result-image="croppedProfilePic"
 						canvas-scalemode="true">
 						</ui-cropper>
 						<button ngf-select ng-model="profilePic" accept="image/*" class="btn blue rounded_corner_btn no-box-shadow">Change Profile Picture</button>
+						</div>
 					</div>
 					<div class="col m9 s12">
 					<ul class="collection">
