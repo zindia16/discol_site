@@ -61,7 +61,7 @@ nav .brand-logo {
 /*== button css==*/
 .ylw_btn{background:#f4c215; color: #000; box-shadow: none; height:44px; line-height: 44px;}
 .ylw_btn:hover, .ylw_btn:focus {background:#f4dc15; box-shadow: none;}
-.rounded_corner_btn{border-radius: 30px; -moz-border-radius: 30px; -webkit-border-radius: 30px;}
+.rounded_corner_btn{border-radius: 30px; -moz-border-radius: 30px; -webkit-border-radius: 30px; padding: 0 1rem;}
 .no-box-shadow{box-shadow: none;}
 /*===== discol css ======*/
 .mainViewArea{margin-left:280px;}
@@ -77,8 +77,9 @@ nav .brand-logo {
 .dscl_nav .side-nav li:hover{background: teal}
 nav.dscl_inner_nav, nav.dscl_inner_nav .nav-wrapper i{box-shadow:none;  height:50px; line-height: 50px;}
 .userView{position: relative;}
+.side-nav.inner-sidenav .divider{margin:0px;}
 .side-nav.inner-sidenav{padding-top: 42px; background: #fff; color: #333;}
-.side-nav.inner-sidenav li + li{margin: 0 10px;}
+.side-nav.inner-sidenav li + li{margin: 5px 10px;}
 .side-nav li a:hover, .inner-sideNav li a:hover, .side-nav.inner-sideNav li a:focus, .inner-sideNav li a:focus, .side-nav li a.active, .inner-sideNav li a.active{color:#039be5;}
 .side-nav.inner-sidenav .userView .background{position: relative;}
 .side-nav.inner-sideNav .svgImg{width:100%; position: absolute; bottom:10px; margin: 0; z-index: 2}
@@ -127,7 +128,7 @@ background-size:cover;}
 
 /* == dashboard section ==*/
 .dashboardSec .card{box-shadow: none;}
-.dashboardSec .card .card-content{position: relative; padding:20px 10px; overflow: visible; word-wrap: break-word;}
+.dashboardSec .card .card-content{position: relative; padding:20px 10px 40px; overflow: visible; word-wrap: break-word;}
 .dashboardSec .card .card-title{font-size: 18px; font-weight: 600; line-height: 20px;}
 .dashboardSec .card .card-title a{ width:100%; margin-top: 10px;}
 .dashboardSec .card .card-title i{cursor:pointer; position: absolute; top:6px; right:3px;}
@@ -148,6 +149,7 @@ background-size:cover;}
 .innerNav_shortBtn{position: absolute; top: 15px; left:15px; z-index: 9999;}
 .rigtPart_btn{position: absolute; top: 15px; right:65px; z-index: 9999;}
 .fixed-action-btn.cust-fixed-action-btn ul li{height:45px; margin-bottom: 10px;}
+.cust-card{margin:0.5rem 0 2.5rem 0;}
 .cust-card .card-action{padding: 10px;}
 .cust-card .card-reveal{word-wrap: break-word;}
 .cust-card .card-image{text-align: center;}
@@ -166,6 +168,8 @@ background-size:cover;}
 .userInfo{font-size: 13px !important;}
 .userInfo span{color:#434343;}
 .dropdown-content.shortLinks li > a{font-size: 14px !important; font-weight:normal !important; margin-top: 0px !important;}
+.crop-profile-pic-area{position: relative; top:-40px;}
+.crop-profile-pic-area img{border:6px solid #fff;}
 
 @media screen and (max-width:599px) {
   .pad_tb_7{padding: 32% 0;}
@@ -296,7 +300,6 @@ h4.captionTxt{color: rgba(255,255,255,.9); font-weight: 300;}
   .parallax-container .section {
     width: 100%;
   }
-
 @media only screen and (max-width : 992px) {
   .mainViewArea{margin-left:0px;}
   .parallax-container .section {

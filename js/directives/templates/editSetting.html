@@ -1,50 +1,51 @@
-<style>
-.cropArea {
-	background: #E4E4E4;
-	overflow: hidden;
-	<!-- width:100%; -->
-	/*height:240px;*/
-	margin: 0px auto;
-}
+	<style>
+	.cropArea {
+		background: #E4E4E4;
+		overflow: hidden;
+		/* width:100%;*/
+		/*height:240px;*/
+		margin: 0px auto;
+	}
 
-</style>
-<loader loader-text="profileLoading" ng-init="profileLoading='Loading your profile .... '" ng-show="!user"></loader>
-<div class="row" ng-show="user">
-	<div class="col s12 m12">
-		<div class="card cust-card">
-			<div class="card-image">
-				<div ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
-					<!-- <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''"></img-crop> -->
-					<img ng-src="{{user.cover_image}}"  ng-show="user.cover_image && !picFile"/>
-					<ui-cropper
-						image="picFile  | ngfDataUrl"
-						area-type="rectangle"
-						aspect-ratio="3.15"
-						result-image="croppedDataUrl"
-						result-image-size="{w:815,h:260}"
-						init-max-area="true"
-						ng-init="croppedDataUrl=''" canvas-scalemode="true"
-						ng-hide="user.cover_image && !picFile">
-					</ui-cropper>
-				</div>
-				<button ngf-select ng-model="picFile" accept="image/*" class="white profile_edit_btn coverImg_edit_btn"><i class="material-icons grey-text text-darken-4" style="margin-left:0px;">edit</i></button>
-				<a href="#!user" class="userpic_holder" ng-show="!user.profile_picture"><img class="circle userpic_circle" src="../images/peep01.jpg"></a>
-				<a href="#!user" class="userpic_holder" ng-show="user.profile_picture"><img class="circle userpic_circle" src="{{user.profile_picture}}"></a>
-			</div>
-
-			<div class="card-content">
-				<div class="row">
-					<div class="col m3 s12 center" style="position: relative;">
-						<div style="position:absolute; top:-50px; width:100%;">
-						<img src="{{user.profile_picture}}" alt="" ng-show="user.profile_picture && !profilePic">
-						<ui-cropper image="profilePic" area-type="circle" chargement="'Loading'" result-image="croppedProfilePic"
-						canvas-scalemode="true">
+	</style>
+	<loader loader-text="profileLoading" ng-init="profileLoading='Loading your profile .... '" ng-show="!user"></loader>
+	<div class="row" ng-show="user">
+		<div class="col s12 m12">
+			<div class="card cust-card">
+				<div class="card-image">
+					<div ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
+						<!-- <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''"></img-crop> -->
+						<img ng-src="{{user.cover_image}}"  ng-show="user.cover_image && !picFile"/>
+						<ui-cropper
+							image="picFile  | ngfDataUrl"
+							area-type="rectangle"
+							aspect-ratio="3.15"
+							result-image="croppedDataUrl"
+							result-image-size="{w:815,h:260}"
+							init-max-area="true"
+							ng-init="croppedDataUrl=''" canvas-scalemode="true"
+							ng-hide="user.cover_image && !picFile">
 						</ui-cropper>
-						<button ngf-select ng-model="profilePic" accept="image/*" class="btn blue rounded_corner_btn no-box-shadow">Change Profile Picture</button>
-						</div>
 					</div>
-					<div class="col m9 s12">
-					<ul class="collection">
+					<button ngf-select ng-model="picFile" accept="image/*" class="white profile_edit_btn coverImg_edit_btn"><i class="material-icons grey-text text-darken-4" style="margin-left:0px;">edit</i></button>
+					<!-- <a href="#!user" class="userpic_holder" ng-show="!user.profile_picture"><img class="circle userpic_circle" src="../images/peep01.jpg"></a>
+					<a href="#!user" class="userpic_holder" ng-show="user.profile_picture"><img class="circle userpic_circle" src="{{user.profile_picture}}"></a> -->
+				</div>
+
+				<div class="card-content">
+					<div class="row">
+						<div class="col m12 s12 l12 center" style="position: relative;">
+							<div class="crop-profile-pic-area">
+							<img src="{{user.profile_picture}}" alt="" ng-show="user.profile_picture && !profilePic">
+							<ui-cropper image="profilePic" area-type="circle" chargement="'Loading'" result-image="croppedProfilePic"
+							canvas-scalemode="true">
+							</ui-cropper>
+							<button ngf-select ng-model="profilePic" accept="image/*" class="btn blue rounded_corner_btn no-box-shadow">Change Profile Picture</button>
+							</div>
+						</div>
+						<div class="col m12 s12 l12">
+						<ul class="collection">
+							
 						<li class="collection-item">
 							<span ng-show = "!changingName">
 							<b>Name:</b> {{user.first_name}} {{user.last_name}}
@@ -77,7 +78,6 @@
 								</form>
 
 							</div>
-<<<<<<< HEAD
 							<a href="javascript:void(0)" class="secondary-content" ng-click="changingName=true"><i class="material-icons">edit</i></a>
 						</li>
 
@@ -93,94 +93,6 @@
 							<div class="card" ng-show="changingPassword">
 								<form ng-submit="changePassword()" name="userForm" novalidate ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
 	<!--                                                            <span ng-class="(pwdchanged)?'blue-text':'red-text' alert alert-danger">{{successMsg}}aaaaaaaaaa</span>-->
-=======
-						</div>
-					</li>
-					<li class="collection-item">
-						<span ng-show = "!changingName">
-						<b>Name:</b> {{user.first_name}} {{user.last_name}}
-						</span>
-						<div class="card" ng-show="changingName">
-							<form ng-submit="updateUserName()" name="userFullNameForm" novalidate>
-                    <div class="collection" ng-show="isNameRes">
-                        <span class="collection-item blue-text" ng-show="namechanged">{{successMsg}}</span>
-                        <span class="collection-item red-text" ng-show="!namechanged">{{successMsg}}</span>
-                    </div>
-										<div class="col s12">
-											<label for="first_name">First Name</label>
-                      <input type="text" required name="first_name" ng-model="user.first_name" id="first_name">
-                      <span class="red-text" ng-show="!userFullNameForm.first_name.$pristine && userFullNameForm.first_name.$invalid">Please enter your first name.</span>
-
-										</div>
-										<div class="col s12">
-											<label for="newPassword">Last Name</label>
-                      <input type="text" name="last_name" ng-model="user.last_name" id="last_name" >
-										</div>
-
-										<div class="col s12">
-											<button type="button" class="btn red rounded_corner_btn no-box-shadow" ng-click="changingName=false">Cancle</button>
-                      <button ng-disabled="!userFullNameForm.$valid ||isBusy" type="submit" class="btn blue rounded_corner_btn no-box-shadow">Update
-                          <i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
-                      </button>
-										</div>
-										<div class="clearfix"></div>
-
-							</form>
-
-						</div>
-						<a href="javascript:void(0)" class="secondary-content" ng-click="changingName=true"><i class="material-icons">edit</i></a>
-					</li>
-
-					<li class="collection-item">
-						<b>Email:</b> {{user.email}}
-						<!-- <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">edit</i></a> -->
-					</li>
-
-					<li class="collection-item">
-						<span ng-show="!changingPassword">
-							<b>Password:</b> ********
-						</span>
-						<div class="card" ng-show="changingPassword">
-							<form ng-submit="changePassword()" name="userForm" novalidate ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-<!--                                                            <span ng-class="(pwdchanged)?'blue-text':'red-text' alert alert-danger">{{successMsg}}aaaaaaaaaa</span>-->
-
-                    <div class="collection" ng-show="isRes">
-                        <span class="collection-item blue-text" ng-show="pwdchanged">{{successMsg}}</span>
-                        <span class="collection-item red-text" ng-show="!pwdchanged">{{successMsg}}</span>
-                    </div>
-										<div class="col s12">
-											<label for="oldPassword">Old Password</label>
-                      <input type="password" required name="oldPassword" ng-model="password.oldPassword" id="oldPassword">
-                      <span class="red-text" ng-show="!userForm.oldPassword.$pristine && userForm.oldPassword.$invalid">The name is required.</span>
-
-										</div>
-										<div class="col s12">
-											<label for="newPassword">New Password</label>
-                      <input type="password" required name="newPassword" ng-model="password.newPassword" id="newPassword" >
-                      <span class="red-text" ng-show="!userForm.newPassword.$pristine && userForm.newPassword.$invalid">The name is required.</span>
-
-										</div>
-										<div class="col s12">
-											<label for="confPassword">Confirm New Password</label>
-                      <input type="password" name="confPassword" ng-model="password.confPassword" required id="confPassword">
-                      <span class="red-text" ng-show="!userForm.confPassword.$pristine && userForm.confPassword.$invalid">The name is required.</span>
-                      <span class="red-text" ng-show="password.newPassword !== password.confPassword">Password mismatch</span>
-                      <span class="blue-text" ng-show="!userForm.confPassword.$pristine && (password.newPassword === password.confPassword)">Password match</span>
-										</div>
-										<div class="col s12">
-											<button type="button" class="btn red rounded_corner_btn no-box-shadow" ng-click="changingPassword=false">Cancle</button>
-                      <button ng-disabled="!userForm.$valid ||isBusy" type="submit" class="btn blue rounded_corner_btn no-box-shadow">Change Password
-                          <i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
-                      </button>
-										</div>
-										<div class="clearfix"></div>
-
-							</form>
-
-						</div>
-						<a href="javascript:void(0)" ng-show="!changingPassword" class="secondary-content" ng-click="changingPassword=true"><i class="material-icons">edit</i></a>
-					</li>
->>>>>>> 6c2b30e7e5b3910b66c7f76e65da9cb1e6a1f402
 
 	                    <div class="collection" ng-show="isRes">
 	                        <span class="collection-item blue-text" ng-show="pwdchanged">{{successMsg}}</span>
@@ -218,18 +130,29 @@
 							</div>
 							<a href="javascript:void(0)" ng-show="!changingPassword" class="secondary-content" ng-click="changingPassword=true"><i class="material-icons">edit</i></a>
 						</li>
-					</ul>
+
+	                    <div class="collection" ng-show="isRes">
+	                        <span class="collection-item blue-text" ng-show="pwdchanged">{{successMsg}}</span>
+	                        <span class="collection-item red-text" ng-show="!pwdchanged">{{successMsg}}</span>
+	                    </div>
+						<div class="clearfix"></div>
+
+									</form>
+
+								</div>
+							</li>
+						</ul>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="card-action" style="text-align:right" ng-show="croppedDataUrl||croppedProfilePic">
-				<button class="btn blue" ng-click="updateProfile(croppedDataUrl,croppedProfilePic)" ng-disabled="isBusy">
-					<i class="material-icons left" >save</i>Save Changes
-					<i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
-				</button>
-			</div>
+				<div class="card-action" style="text-align:right" ng-show="croppedDataUrl||croppedProfilePic">
+					<button class="btn blue" ng-click="updateProfile(croppedDataUrl,croppedProfilePic)" ng-disabled="isBusy">
+						<i class="material-icons left" >save</i>Save Changes
+						<i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
+					</button>
+				</div>
 
+			</div>
 		</div>
 	</div>
-</div>
