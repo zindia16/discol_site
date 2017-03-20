@@ -1,4 +1,29 @@
-<div class="card sticky-action" ng-class="getContentBg(content.content_type)">
+<h1 class="pageHeading no-marg-t">Compose Blog</h1>
+<div class="card">
+	<div class="card-content">
+		<form name="frmContent">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="header_image_link" name="header_image_link" ng-model="content.header_image_link" class="validate">
+					<label for="header_image_link" class="active">Blog Title</label>
+				</div>
+				<div class="input-field col s12">
+					<text-angular ng-model="content.text" name="newContent"
+					ta-toolbar="taOptions"
+					ta-toolbar-button-class="btn custTab"
+					ta-toolbar-active-button-class="blue"
+					 ></text-angular>
+				</div>
+				<button class="btn blue" ng-click="updateProfile(croppedDataUrl,croppedProfilePic)" ng-disabled="isBusy">
+						<i class="material-icons left" >save</i>Save Changes
+						<i class="fa fa-fw fa-spin fa-spinner" ng-show="isBusy"></i>
+					</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- <div class="card sticky-action" ng-class="getContentBg(content.content_type)">
 	<div class="card-image waves-effect waves-block waves-light">
 		<span class="category_icon valign-wrapper" ng-bind-html="getContentIcon(content.content_type)"></span>
 		<img ng-hide="content.video_link" class="activator responsive-img" alt="No Image" ng-src="{{content.header_image_link}}" ng-init="content.header_image_link = content.header_image_link ||  '../images/baby.jpg'">
@@ -47,4 +72,4 @@
     <li class="divider"></li>
     <li><a href="javascript:void(0);">Link 4</a></li>
     <li><a href="javascript:void(0);">Link 5</a></li>
-</ul>
+</ul> -->

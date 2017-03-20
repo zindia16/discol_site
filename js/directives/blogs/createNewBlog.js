@@ -10,6 +10,10 @@ angular.module('landing').directive('createNewBlog',function(urls){
 			$scope.content.created=new Date();
 			$scope.content.is_published=true;
 			$scope.content.video_link="";
+			$scope.taOptions = [
+								['h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote','bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent', 'html', 'insertImage','insertLink', 'insertVideo']
+								];
+
 			//$scope.cs = CommonService;
 
 			$scope.getContentBg = function(contentType){

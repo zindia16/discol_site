@@ -38,6 +38,7 @@ p {
   line-height: 1.6rem;
 }
 .no-pad{padding:0px !important;}
+.no-marg-t{margin-top: 0px;}
 .no-marg-b{margin-bottom: 0px;}
 .marg-top-1{margin-top: 1rem;}
 .marg-bot-1{margin-bottom: 1rem;}
@@ -49,6 +50,8 @@ p {
 .pad_lr_2{padding-left: 2em; padding-right: 2em;}
 .heading{text-transform: uppercase; color:#4db6ac; font-size: 14px; font-weight:bold;}
 .cust_chip{background: #f3f5fa; border:1px solid #ebf1fd;}
+.pageHeading{color:#4db6ac; font-size: 24px; color: #333; font-weight: 600;}
+.custTab{padding:0 1em; margin: 2px; cursor: pointer;}
 /*===== nav css ======*/
 nav ul a,
 nav .brand-logo {

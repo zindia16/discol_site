@@ -9,7 +9,9 @@ angular.module('landing',[
 	'angularTrix',
 	'ngFileUpload',
     'ngImgCrop',
-	'uiCropper'
+	'uiCropper',
+	'ngSanitize',
+	'textAngular'
 ]);
 
 angular.module('landing').constant('urls',{
